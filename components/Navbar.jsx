@@ -120,13 +120,13 @@ export default function Navbar({
           </div>
         </div>
       </div>
-      {/* Login trigger */}
+      {/* Login trigger
       <button
         onClick={() => useModal().openLogin && useModal().openLogin()}
         style={{ marginLeft: 10 }}
       >
         Login
-      </button>
+      </button> */}
     </nav>
   );
 }
