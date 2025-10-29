@@ -16,6 +16,7 @@ export default function Navbar({
 }) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const router = useRouter();
+  const token = true;
 
   const languages = [
     { code: "en", name: "English" },
@@ -29,8 +30,8 @@ export default function Navbar({
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto ">
+        <div className="relative flex items-center justify-between">
           {/* Logo */}
           <div className="text-white font-light text-sm tracking-wider cursor-pointer">
             <Image src={logo} alt="logo" onClick={() => router.push("/")} />

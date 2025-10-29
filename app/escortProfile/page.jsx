@@ -13,6 +13,34 @@ import {
   Shield,
   CreditCard,
 } from "lucide-react";
+import {
+  FaEye,
+  FaFlag,
+  FaCamera,
+  FaUser,
+  FaPlane,
+  FaHands,
+  FaLock,
+  FaTheaterMasks,
+  FaMoon,
+  FaUsers,
+  FaVideo,
+  FaUtensils,
+  FaStar,
+  FaGem,
+  FaCrown,
+  FaMedal,
+  FaShieldAlt,
+  FaCheckCircle,
+} from "react-icons/fa";
+import {
+  MdMassage,
+  MdNightlight,
+  MdOutlineEmojiPeople,
+  MdOutlineVerified,
+} from "react-icons/md";
+import { HiUsers } from "react-icons/hi";
+import { FiMessageCircle } from "react-icons/fi";
 
 export default function EscortProfilePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -28,17 +56,29 @@ export default function EscortProfilePage() {
   const thumbnails = images;
 
   const services = [
-    { id: 1, name: "Full (Premium Experience)", icon: "💎" },
-    { id: 2, name: "Travel Companion", icon: "✈️" },
-    { id: 3, name: "Massage", icon: "💆" },
-    { id: 4, name: "BDSM", icon: "🔗" },
-    { id: 5, name: "Striptease", icon: "💃" },
-    { id: 6, name: "Role Playing", icon: "🎭" },
-    { id: 7, name: "Overnight", icon: "🌙" },
-    { id: 8, name: "Couples", icon: "👫" },
-    { id: 9, name: "Video Calls", icon: "📹" },
-    { id: 10, name: "Dinner Date", icon: "🍽️" },
-    { id: 11, name: "Custom Requests", icon: "⭐" },
+    {
+      id: 1,
+      name: "Full (Premium Experience)",
+      icon: <FaGem className="text-2xl" />,
+    },
+    { id: 2, name: "Travel Companion", icon: <FaPlane className="text-2xl" /> },
+    { id: 3, name: "Massage", icon: <FiMessageCircle className="text-2xl" /> },
+    { id: 4, name: "BDSM", icon: <FaLock className="text-2xl" /> },
+    {
+      id: 5,
+      name: "Striptease",
+      icon: <MdOutlineEmojiPeople className="text-2xl" />,
+    },
+    {
+      id: 6,
+      name: "Role Playing",
+      icon: <FaTheaterMasks className="text-2xl" />,
+    },
+    { id: 7, name: "Overnight", icon: <FaMoon className="text-2xl" /> },
+    { id: 8, name: "Couples", icon: <FaUsers className="text-2xl" /> },
+    { id: 9, name: "Video Calls", icon: <FaVideo className="text-2xl" /> },
+    { id: 10, name: "Dinner Date", icon: <FaUtensils className="text-2xl" /> },
+    { id: 11, name: "Custom Requests", icon: <FaStar className="text-2xl" /> },
   ];
 
   const pricing = [
@@ -125,7 +165,7 @@ export default function EscortProfilePage() {
 
               {/* Verified Badge */}
               <div className="absolute top-4 left-4 bg-green-500 text-black px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
-                <CheckCircle size={14} /> Verified
+                <MdOutlineVerified size={14} /> Verified
               </div>
             </div>
 
@@ -163,13 +203,18 @@ export default function EscortProfilePage() {
                       />{" "}
                       5.0 (106 reviews)
                     </span>
-                    <span>👁 17 (10min)</span>
-                    <span>🇫🇷 English, French, Spanish</span>
                     <span className="flex items-center gap-1">
-                      <CheckCircle size={16} className="text-green-500" /> VIP
-                      Elite
+                      <FaEye size={14} /> 17 (10min)
                     </span>
-                    <span>📸 Independent</span>
+                    <span className="flex items-center gap-1">
+                      <FaFlag size={14} /> English, French, Spanish
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <FaCrown size={14} className="text-amber-500" /> VIP Elite
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <FaCamera size={14} /> Independent
+                    </span>
                   </div>
                 </div>
                 <div className="flex gap-1">
@@ -195,8 +240,8 @@ export default function EscortProfilePage() {
                   rendezvous, I ensure an unforgettable experience tailored to
                   your desires.
                 </p>
-                <button className="text-amber-500 hover:text-amber-400 mt-2">
-                  Read More →
+                <button className="text-amber-500 hover:text-amber-400 mt-2 flex items-center gap-1">
+                  Read More <span>→</span>
                 </button>
               </div>
 
@@ -207,9 +252,9 @@ export default function EscortProfilePage() {
                   {services.map((service) => (
                     <button
                       key={service.id}
-                      className="bg-zinc-800 hover:bg-zinc-700 rounded-lg p-4 text-left transition-all border border-transparent hover:border-amber-500"
+                      className="bg-zinc-800 hover:bg-zinc-700 rounded-lg p-4 text-left transition-all border border-transparent hover:border-amber-500 flex flex-col items-center text-center"
                     >
-                      <div className="text-2xl mb-2">{service.icon}</div>
+                      <div className="text-amber-500 mb-2">{service.icon}</div>
                       <div className="text-sm">{service.name}</div>
                     </button>
                   ))}
@@ -250,7 +295,7 @@ export default function EscortProfilePage() {
                     </span>
                   </div>
                   <button className="text-amber-500 hover:text-amber-400 flex items-center gap-2">
-                    ✏️ Write a Review
+                    <FaCheckCircle size={14} /> Write a Review
                   </button>
                 </div>
 
@@ -285,7 +330,7 @@ export default function EscortProfilePage() {
                     <div key={idx} className="border-t border-zinc-800 pt-6">
                       <div className="flex items-start gap-4">
                         <div className="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center text-xl">
-                          {review.name[0]}
+                          <FaUser />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center justify-between mb-2">
@@ -352,8 +397,8 @@ export default function EscortProfilePage() {
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                       Available Now
                     </div>
-                    <div className="text-xs text-gray-400 mt-1">
-                      📍 Manhattan, NY
+                    <div className="text-xs text-gray-400 mt-1 flex items-center gap-1">
+                      <MapPin size={12} /> Manhattan, NY
                     </div>
                   </div>
                 </div>
@@ -409,7 +454,7 @@ export default function EscortProfilePage() {
 
                 <div className="mt-4 p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg">
                   <div className="text-xs text-amber-500 flex items-start gap-2">
-                    <Star size={14} className="flex-shrink-0 mt-0.5" />
+                    <FaMedal size={14} className="flex-shrink-0 mt-0.5" />
                     <span>Premium Member - Book with confidence</span>
                   </div>
                 </div>
@@ -427,31 +472,31 @@ export default function EscortProfilePage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400 flex items-center gap-2">
-                      📏 Height
+                      <HiUsers size={16} /> Height
                     </span>
                     <span className="font-semibold">5'7" (170cm)</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400 flex items-center gap-2">
-                      👗 Bust/Size
+                      <FaUser size={16} /> Bust/Size
                     </span>
                     <span className="font-semibold">Brunette</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400 flex items-center gap-2">
-                      👁️ Eyes
+                      <FaEye size={16} /> Eyes
                     </span>
                     <span className="font-semibold">Hazel</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400 flex items-center gap-2">
-                      💬 Languages
+                      <Globe size={16} /> Languages
                     </span>
                     <span className="font-semibold">French</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400 flex items-center gap-2">
-                      <Globe size={16} /> Nationality
+                      <FaFlag size={16} /> Nationality
                     </span>
                     <span className="font-semibold">
                       English, French, Spanish
@@ -459,13 +504,13 @@ export default function EscortProfilePage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400 flex items-center gap-2">
-                      🌍 Ethnicity
+                      <Globe size={16} /> Ethnicity
                     </span>
                     <span className="font-semibold">Heterosexual</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400 flex items-center gap-2">
-                      💰 Price Range
+                      <DollarSign size={16} /> Price Range
                     </span>
                     <span className="font-semibold text-amber-500">
                       $ (EU 36)
@@ -473,7 +518,7 @@ export default function EscortProfilePage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400 flex items-center gap-2">
-                      👠 Shoe Size
+                      <FaUser size={16} /> Shoe Size
                     </span>
                     <span className="font-semibold">7 (EU 38)</span>
                   </div>
@@ -512,10 +557,10 @@ export default function EscortProfilePage() {
                     <MapPin size={12} /> London
                   </span>
                   <span className="px-3 py-1.5 bg-zinc-800 rounded-full text-xs flex items-center gap-1">
-                    <MapPin size={12} /> London
+                    <MapPin size={12} /> Paris
                   </span>
                   <span className="px-3 py-1.5 bg-zinc-800 rounded-full text-xs flex items-center gap-1">
-                    <MapPin size={12} /> London
+                    <MapPin size={12} /> Dubai
                   </span>
                 </div>
               </div>

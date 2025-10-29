@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import RefineSearchSidebar from "@/components/HomePage/RefineSearchSidebar";
 import { useRouter } from "next/navigation";
+import MediaSections from "@/components/HomePage/MediaSections";
 
 export default function EscortWebsite() {
   const [selectedFilters, setSelectedFilters] = useState({});
@@ -18,7 +19,7 @@ export default function EscortWebsite() {
       reviews: 12,
     }));
 
-  const webcamShows = Array(8)
+  const webcamShows = Array(10)
     .fill(null)
     .map((_, i) => ({
       id: i + 1,
@@ -26,7 +27,7 @@ export default function EscortWebsite() {
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=300&fit=crop",
     }));
 
-  const episodes = Array(5)
+  const episodes = Array(9)
     .fill(null)
     .map((_, i) => ({
       id: i + 1,
@@ -55,45 +56,7 @@ export default function EscortWebsite() {
         </button>
       </div>
 
-      {/* Live Webcam Shows */}
-      <div className="px-8 py-8 border-b border-[#1a1a1a]">
-        <h2 className="text-lg mb-4 text-white font-medium">
-          Live Webcam Shows
-        </h2>
-        <div className="flex gap-3 overflow-x-auto pb-2">
-          {webcamShows.map((show) => (
-            <div
-              key={show.id}
-              className="flex-shrink-0 relative w-[100px] h-[140px]"
-            >
-              <img
-                src={show.image}
-                alt="Webcam"
-                className="w-full h-full rounded-lg object-cover cursor-pointer hover:opacity-80 transition"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Episodes */}
-      <div className="px-8 py-8 border-b border-[#1a1a1a]">
-        <h2 className="text-lg mb-4 text-white font-medium">Episodes</h2>
-        <div className="flex gap-4 overflow-x-auto pb-2">
-          {episodes.map((episode) => (
-            <div
-              key={episode.id}
-              className="flex-shrink-0 relative w-[140px] h-[190px]"
-            >
-              <img
-                src={episode.image}
-                alt="Episode"
-                className="w-full h-full rounded-lg object-cover cursor-pointer hover:opacity-80 transition"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <MediaSections webcamShows={webcamShows} episodes={episodes} />
 
       {/* Main Content */}
       <div className="flex px-8 py-10 gap-8 items-start">
