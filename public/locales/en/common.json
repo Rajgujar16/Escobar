@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Home",
+    "agencies": "Agencies",
+    "cityTours": "City Tours",
+    "map": "Map"
+  },
+  "login": {
+    "memberLogin": "Member Login",
+    "agencyLogin": "Agency Login",
+    "affiliateLogin": "Affiliate Login",
+    "independentLogin": "Independent Login",
+    "independent": "Independent",
+    "agency": "Agency",
+    "member": "Member",
+    "affiliate": "Affiliate",
+    "emailAddress": "Email Address",
+    "password": "Password",
+    "rememberMe": "Remember Me",
+    "forgotPassword": "Forgot Password?",
+    "loginButton": "Login",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign Up",
+    "haveAccount": "Already have an account"
+  },
+  "home": {
+    "welcomeTitle": "Welcome to Escortsinub",
+    "welcomeSubtitle": "Discover exclusive experiences and premium services in your city",
+    "getStarted": "Get Started",
+    "cards": {
+      "agenciesTitle": "Premium Agencies",
+      "agenciesDesc": "Connect with verified and trusted agencies in your area",
+      "toursTitle": "City Tours",
+      "toursDesc": "Explore exclusive city tours and experiences",
+      "updatesTitle": "Live Updates",
+      "updatesDesc": "Real-time availability and instant booking options"
+    }
+  }
+}
