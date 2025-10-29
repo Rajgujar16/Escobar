@@ -13,9 +13,11 @@ import {
 } from "lucide-react";
 import { FaEye, FaFlag, FaUser, FaVideo, FaHeart } from "react-icons/fa";
 import { BsTelephoneOutboundFill } from "react-icons/bs";
+import BookingModal from "@/components/EscortProfile/BookingModal";
 
 import { HiUsers } from "react-icons/hi";
 export default function EscortProfileRightSection() {
+  const [bookModal, setBookModal] = useState(false);
   const availability = [
     { day: "Monday", time: "08:00 AM - 01:00 AM" },
     { day: "Tuesday", time: "08:00 AM - 01:00 AM" },
@@ -72,7 +74,10 @@ export default function EscortProfileRightSection() {
           </div>
 
           {/* Buttons */}
-          <button className="w-full bg-gradient-to-r from-[#d4a574] to-[#e3b67a] text-black font-semibold py-3 rounded-lg mb-3 text-sm hover:from-[#e3b67a] hover:to-[#d4a574] transition-all flex items-center justify-center gap-2">
+          <button
+            className="w-full bg-gradient-to-r from-[#d4a574] to-[#e3b67a] text-black font-semibold py-3 rounded-lg mb-3 text-sm hover:from-[#e3b67a] hover:to-[#d4a574] transition-all flex items-center justify-center gap-2"
+            onClick={() => setBookModal(true)}
+          >
             <FaVideo /> Book a Live Session
           </button>
 
@@ -209,6 +214,7 @@ export default function EscortProfileRightSection() {
             </span>
           </div>
         </div>
+        <BookingModal isOpen={bookModal} onClose={() => setBookModal(false)} />
       </div>
     </>
   );

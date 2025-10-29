@@ -65,7 +65,7 @@ export default function LoginModal({ isOpen, onClose, t }) {
       {/* Modal Container */}
       <div className="fixed inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm z-50">
         <div
-          className="bg-[#111] rounded-2xl shadow-xl border border-white/10 
+          className="bg-black rounded-2xl shadow-xl border border-white/10 
       w-[90%] sm:w-[80%] md:w-[60%] lg:w-[40%] max-w-[500px] 
       max-h-[90vh] flex flex-col overflow-hidden transition-all duration-300"
         >
@@ -87,7 +87,7 @@ export default function LoginModal({ isOpen, onClose, t }) {
           </div>
 
           {/* Tabs (Fixed) */}
-          <div className="px-3 flex-shrink-0 b bg-[#111] z-10">
+          <div className="px-3 flex-shrink-0 b bg-black z-10">
             <div
               className="flex justify-start items-center gap-2 sm:gap-3 p-2 sm:p-3 
           border border-[#ff9a3c]/60 rounded-full bg-black/30 backdrop-blur-sm 
@@ -115,7 +115,7 @@ export default function LoginModal({ isOpen, onClose, t }) {
           </div>
 
           {/* Toggle login/register (Fixed bottom) */}
-          <div className="text-center text-gray-400 text-xs sm:text-sm p-4 sm:pb-6 border-t border-[#ff913c] flex-shrink-0 bg-[#111]">
+          <div className="text-center text-gray-400 text-xs sm:text-sm p-4 sm:pb-6 border-t border-[#ff913c] flex-shrink-0 bg-black">
             {isLogin ? (
               <>
                 {t("login.noAccount")}{" "}

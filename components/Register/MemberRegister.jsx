@@ -11,7 +11,7 @@ export default function MemberRegister({ t }) {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="max-w-sm mx-auto space-y-5 bg-transparent"
+      className="p-2 space-y-5 bg-transparent"
     >
       {/* Heading */}
       <h3 className="text-white text-xl font-light text-center">
@@ -29,7 +29,7 @@ export default function MemberRegister({ t }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="This name will be public."
-          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#ff9a3c]/50 focus:ring-2 focus:ring-[#ff9a3c]/20 transition-all"
+          className="w-full bg-transparent border border-neutral-700 rounded-md px-3 py-2 text-sm focus:outline-none"
         />
       </div>
 
@@ -43,7 +43,7 @@ export default function MemberRegister({ t }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="example@email.com"
-          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#ff9a3c]/50 focus:ring-2 focus:ring-[#ff9a3c]/20 transition-all"
+          className="w-full bg-transparent border border-neutral-700 rounded-md px-3 py-2 text-sm focus:outline-none"
         />
       </div>
 
@@ -55,7 +55,7 @@ export default function MemberRegister({ t }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password must be 8 characters"
-          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#ff9a3c]/50 focus:ring-2 focus:ring-[#ff9a3c]/20 transition-all"
+          className="w-full bg-transparent border border-neutral-700 rounded-md px-3 py-2 text-sm focus:outline-none"
         />
       </div>
 
@@ -69,7 +69,7 @@ export default function MemberRegister({ t }) {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           placeholder="Retype Password"
-          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#ff9a3c]/50 focus:ring-2 focus:ring-[#ff9a3c]/20 transition-all"
+          className="w-full bg-transparent border border-neutral-700 rounded-md px-3 py-2 text-sm focus:outline-none"
         />
       </div>
 
