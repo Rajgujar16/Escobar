@@ -47,13 +47,13 @@ export default function Navbar({
             {t("nav.home")}
           </Link>
           <Link
-            href="#"
+            href="/agencies"
             className="text-gray-300 hover:text-[#ff9a3c] text-sm transition"
           >
             {t("nav.agencies")}
           </Link>
           <Link
-            href="#"
+            href="/services"
             className="text-gray-300 hover:text-[#ff9a3c] text-sm transition"
           >
             {t("nav.cityTours")}
