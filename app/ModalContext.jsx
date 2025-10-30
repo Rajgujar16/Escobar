@@ -8,8 +8,22 @@ export function ModalProvider({ children }) {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const openLogin = () => setIsLoginOpen(true);
   const closeLogin = () => setIsLoginOpen(false);
+
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const openBooking = () => setIsBookingOpen(true);
+  const closeBooking = () => setIsBookingOpen(false);
+
   return (
-    <ModalContext.Provider value={{ isLoginOpen, openLogin, closeLogin }}>
+    <ModalContext.Provider
+      value={{
+        isLoginOpen,
+        openLogin,
+        closeLogin,
+        isBookingOpen,
+        openBooking,
+        closeBooking,
+      }}
+    >
       {children}
     </ModalContext.Provider>
   );

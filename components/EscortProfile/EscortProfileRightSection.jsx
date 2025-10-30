@@ -16,8 +16,10 @@ import { BsTelephoneOutboundFill } from "react-icons/bs";
 import BookingModal from "@/components/EscortProfile/BookingModal";
 
 import { HiUsers } from "react-icons/hi";
+import { useModal } from "@/app/ModalContext";
 export default function EscortProfileRightSection() {
-  const [bookModal, setBookModal] = useState(false);
+  const { openBooking } = useModal();
+
   const availability = [
     { day: "Monday", time: "08:00 AM - 01:00 AM" },
     { day: "Tuesday", time: "08:00 AM - 01:00 AM" },
@@ -76,7 +78,7 @@ export default function EscortProfileRightSection() {
           {/* Buttons */}
           <button
             className="w-full bg-gradient-to-r from-[#d4a574] to-[#e3b67a] text-black font-semibold py-3 rounded-lg mb-3 text-sm hover:from-[#e3b67a] hover:to-[#d4a574] transition-all flex items-center justify-center gap-2"
-            onClick={() => setBookModal(true)}
+            onClick={openBooking}
           >
             <FaVideo /> Book a Live Session
           </button>
@@ -214,7 +216,6 @@ export default function EscortProfileRightSection() {
             </span>
           </div>
         </div>
-        <BookingModal isOpen={bookModal} onClose={() => setBookModal(false)} />
       </div>
     </>
   );

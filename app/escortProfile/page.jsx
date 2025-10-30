@@ -17,7 +17,7 @@ export default function EscortProfilePage() {
           </div>
 
           {/* Mid Column - Image Gallery */}
-          <div className="lg:col-span-3 bg-[#111] rounded-xl p-6 border border-zinc-800">
+          <div className="lg:col-span-3 bg-[#111] rounded-xl lg:p-6 md:p-6 p-2 border border-zinc-800">
             <EscortProfileMidSection />
           </div>
 

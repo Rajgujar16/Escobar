@@ -126,7 +126,7 @@ export default function EscortProfileMidSection() {
       </div>
 
       {/* Profile Info */}
-      <div className="bg-[#111] rounded-xl mt-6 border border-zinc-800 p-5">
+      <div className="bg-[#111] rounded-xl mt-6 md:border lg:border border-zinc-800 p-2 md:p:5 lg:p-5">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
           <div>

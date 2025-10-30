@@ -1,29 +1,46 @@
 "use client";
-import LoginModal from "../components/LoginModal/LoginModal";
-
+import { useState } from "react";
+import { Inter } from "next/font/google";
 import "../lib/suppressHydrationWarnings";
 import "./globals.css";
-import { Inter } from "next/font/google";
 
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LoginModal from "@/components/LoginModal/LoginModal";
+import BookingModal from "@/components/EscortProfile/BookingModal";
+import { ModalProvider, useModal } from "./ModalContext";
+
 import en from "@/public/locales/en/common.json";
 import fr from "@/public/locales/fr/common.json";
 import pt from "@/public/locales/pt/common.json";
 import es from "@/public/locales/es/common.json";
-import { useState } from "react";
-import Navbar from "../components/Navbar";
-import { ModalProvider } from "./ModalContext";
-const translations = { en, fr, pt, es };
 
+const translations = { en, fr, pt, es };
 const inter = Inter({ subsets: ["latin"] });
 
-// export const metadata = {
-//   title: "Escortsinub - Premium Services",
-//   description: "Discover exclusive experiences and premium services",
-// };
+function LayoutContent({ children, currentLocale, setCurrentLocale, t }) {
+  const { isLoginOpen, closeLogin, isBookingOpen, closeBooking, openLogin } =
+    useModal();
+
+  return (
+    <>
+      <Navbar
+        onLoginClick={openLogin}
+        currentLocale={currentLocale}
+        onLocaleChange={setCurrentLocale}
+        t={t}
+      />
+
+      <LoginModal isOpen={isLoginOpen} onClose={closeLogin} t={t} />
+      <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
+
+      {children}
+      <Footer />
+    </>
+  );
+}
 
 export default function RootLayout({ children }) {
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [currentLocale, setCurrentLocale] = useState("en");
 
   const t = (key) => {
@@ -34,25 +51,21 @@ export default function RootLayout({ children }) {
     }
     return value || key;
   };
+
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-[#0e0e0e] pt-24`}>
+      <body
+        className={`${inter.className} min-h-screen bg-[#0e0e0e] lg:pt-24 md:pt-24 pt-20`}
+      >
         <ModalProvider>
-          <Navbar
-            onLoginClick={() => setIsLoginOpen(true)}
+          <LayoutContent
             currentLocale={currentLocale}
-            onLocaleChange={setCurrentLocale}
+            setCurrentLocale={setCurrentLocale}
             t={t}
-          />
-          <LoginModal
-            isOpen={isLoginOpen}
-            onClose={() => setIsLoginOpen(false)}
-            t={t}
-          />
-          {children}
+          >
+            {children}
+          </LayoutContent>
         </ModalProvider>
-
-        <Footer />
       </body>
     </html>
   );
