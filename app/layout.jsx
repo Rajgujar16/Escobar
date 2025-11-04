@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import LoginModal from "@/components/LoginModal/LoginModal";
 import BookingModal from "@/components/EscortProfile/BookingModal";
 import { ModalProvider, useModal } from "./ModalContext";
+import Ads from "@/components/Ads/Ads";
 
 import en from "@/public/locales/en/common.json";
 import fr from "@/public/locales/fr/common.json";
@@ -35,6 +36,7 @@ function LayoutContent({ children, currentLocale, setCurrentLocale, t }) {
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
 
       {children}
+      <Ads />
       <Footer />
     </>
   );
@@ -55,7 +57,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen bg-[#0e0e0e] lg:pt-24 md:pt-24 pt-20`}
+        className={`${inter.className} min-h-screen bg-zinc-900 lg:pt-24 md:pt-24 pt-20`}
       >
         <ModalProvider>
           <LayoutContent

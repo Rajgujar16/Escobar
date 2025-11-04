@@ -49,7 +49,7 @@ export default function Agency() {
   }, [visible, loading, agencies.length]);
 
   return (
-    <div className="min-h-screen bg-[#0e0e0e] text-white px-4 sm:px-6 md:px-10 py-8 space-y-6">
+    <div className="min-h-screen  text-white px-4 sm:px-6 md:px-10 py-8 space-y-6">
       {/* Count */}
       <div className="flex justify-center sm:justify-start">
         <span className="bg-[#d4a67463] px-4 py-2 text-sm sm:text-base rounded-full">
@@ -116,7 +116,7 @@ export default function Agency() {
         {agencies.slice(0, visible).map((agency) => (
           <div
             key={agency.id}
-            className="bg-black border border-[#2b2b2b] rounded-lg overflow-hidden hover:border-[#d4a574]/60 transition"
+            className="bg-black/60 border border-[#2b2b2b] rounded-lg overflow-hidden hover:border-[#d4a574]/60 transition flex flex-col h-[250px] sm:h-[280px] md:h-[300px]"
           >
             {/* Header */}
             <div className="flex items-center gap-3 p-4">
@@ -139,29 +139,31 @@ export default function Agency() {
               </div>
             </div>
 
-            {/* Description */}
-            <div className="px-4 pb-4">
-              <p className="text-xs sm:text-sm text-gray-400 mt-1 leading-relaxed line-clamp-2">
-                {agency.description}
-              </p>
-
-              {/* Rating */}
-              <div className="flex items-center gap-1 mt-3 text-[#d4a574]">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={14} fill="#d4a574" stroke="#d4a574" />
-                ))}
-                <span className="text-gray-400 text-xs ml-1">
-                  {agency.rating} ({agency.reviews})
-                </span>
+            {/* Description + Rating + Button */}
+            <div className="px-4 pb-4 flex-1 flex flex-col justify-between">
+              <div>
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2">
+                  {agency.description}
+                </p>
               </div>
-
-              {/* Button */}
-              <button
-                className="mt-4 w-full bg-[#d4a574]/80 hover:bg-[#d4a574] text-black font-medium text-xs sm:text-sm py-2 rounded-md transition"
-                onClick={() => router.push("/agencies/agencyProfile")}
-              >
-                View Profile
-              </button>
+              <div>
+                {/* Rating */}
+                <div className="flex items-center gap-1 mt-3 text-[#d4a574]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} fill="#d4a574" stroke="#d4a574" />
+                  ))}
+                  <span className="text-gray-400 text-xs ml-1">
+                    {agency.rating} ({agency.reviews})
+                  </span>
+                </div>
+                {/* Button */}
+                <button
+                  className="mt-4 w-full bg-[#d4a574]/80 hover:bg-[#d4a574] text-black font-medium text-xs sm:text-sm py-2 rounded-md transition"
+                  onClick={() => router.push("/agencies/agencyProfile")}
+                >
+                  View Profile
+                </button>
+              </div>
             </div>
           </div>
         ))}

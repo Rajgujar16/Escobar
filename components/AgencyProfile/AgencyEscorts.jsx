@@ -14,10 +14,10 @@ export default function AgencyEscorts({ escorts }) {
             className="bg-[#0c0c0c] border border-[#2a2a2a] rounded-xl overflow-hidden hover:border-[#d4a574] transition-colors duration-300"
           >
             {/* Image */}
-            <div className="relative w-full aspect-[4/5] sm:aspect-[3/4]">
+            <div className="relative w-full aspect-[4/5] sm:aspect-[3/3]">
               <Image
                 src={escort.image}
-                alt={escort.name}
+                alt={escort.name || "Escort"}
                 fill
                 className="object-cover"
               />

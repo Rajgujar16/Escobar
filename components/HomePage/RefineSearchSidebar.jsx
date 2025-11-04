@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { FaCheckCircle, FaStar, FaVideo } from "react-icons/fa";
 import { FiFilter } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 
@@ -28,8 +29,8 @@ export default function RefineSearchSidebar() {
       <aside
         className={`fixed lg:static top-0 left-0 h-full lg:h-auto 
           w-[85%] sm:w-[300px] lg:w-[260px] 
-          bg-[#0d0d0d] text-[#e4e4e4] 
-          px-5 py-6 border-r border-[#1a1a1a] 
+          text-[#e4e4e4] 
+          px-5 py-6 border-r border-zinc-700 
           font-[500] tracking-wide 
           z-50 transform transition-transform duration-300 ease-in-out
           overflow-y-auto scrollbar-thin scrollbar-thumb-[#c99b53]/30 scrollbar-track-transparent
@@ -65,17 +66,17 @@ export default function RefineSearchSidebar() {
           </h3>
           <div className="space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
-              <select className="bg-transparent border border-[#2a2a2a] text-[13px] px-3 py-1.5 rounded w-full focus:outline-none appearance-none mb-3 sm:mb-0">
+              <select className="bg-transparent border border-[#f2c27a]/50 text-[13px] px-3 py-1.5 rounded w-full focus:outline-none appearance-none mb-3 sm:mb-0">
                 <option>Location</option>
               </select>
-              <select className="bg-transparent border border-[#2a2a2a] text-[13px] px-3 py-1.5 rounded w-full focus:outline-none appearance-none">
+              <select className="bg-transparent border border-[#f2c27a]/50 text-[13px] px-3 py-1.5 rounded w-full focus:outline-none appearance-none">
                 <option>Age</option>
               </select>
             </div>
-            <select className="bg-transparent border border-[#2a2a2a] text-[13px] px-3 py-1.5 rounded w-full focus:outline-none appearance-none">
+            <select className="bg-transparent border border-[#f2c27a]/50 text-[13px] px-3 py-1.5 rounded w-full focus:outline-none appearance-none">
               <option>Independent/Agency</option>
             </select>
-            <select className="bg-transparent border border-[#2a2a2a] text-[13px] px-3 py-1.5 rounded w-full focus:outline-none appearance-none">
+            <select className="bg-transparent border border-[#f2c27a]/50 text-[13px] px-3 py-1.5 rounded w-full focus:outline-none appearance-none">
               <option>Service information/Agency</option>
             </select>
           </div>
@@ -88,23 +89,58 @@ export default function RefineSearchSidebar() {
           <h3 className="text-sm mb-3 text-[#f2c27a] font-semibold">
             Details & Media
           </h3>
+
+          {/* Media & Verification */}
           <p className="text-[12px] text-[#cfcfcf] mb-1">
             Media & Verification
           </p>
-          <div className="space-y-1.5 text-[13px]">
-            {["Verified Details", "Pornstar", "With video"].map((item) => (
-              <label key={item} className="flex items-center gap-2">
-                <input type="checkbox" className="accent-[#c99b53]" />
-                {item}
-              </label>
-            ))}
+          <div className="space-y-1.5 text-[13px] text-[#d9d9d9]">
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                className="appearance-none w-[14px] h-[14px] border border-[#c99b53] bg-transparent rounded-sm checked:bg-[#c99b53] checked:border-[#c99b53] cursor-pointer transition-all"
+              />
+              <span className="flex items-center gap-1">
+                <FaCheckCircle className="text-green-500 text-[13px]" />
+                Verified Details
+              </span>
+            </label>
+
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                className="appearance-none w-[14px] h-[14px] border border-[#c99b53] bg-transparent rounded-sm checked:bg-[#c99b53] checked:border-[#c99b53] cursor-pointer transition-all"
+              />
+              <span className="flex items-center gap-1">
+                <FaStar className="text-[#c99b53] text-[13px]" />
+                Pornstar
+              </span>
+            </label>
+
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                className="appearance-none w-[14px] h-[14px] border border-[#c99b53] bg-transparent rounded-sm checked:bg-[#c99b53] checked:border-[#c99b53] cursor-pointer transition-all"
+              />
+              <span className="flex items-center gap-1">
+                <FaVideo className="text-[#2f6bff] text-[13px]" />
+                With video
+              </span>
+            </label>
           </div>
 
+          {/* Offering For */}
           <p className="text-[12px] text-[#cfcfcf] mt-4 mb-1">Offering For</p>
-          <div className="space-y-1.5 text-[13px]">
+          <div className="space-y-1.5 text-[13px] text-[#d9d9d9] flex flex-wrap gap-2">
             {["2+", "Women", "Couples", "Men", "Trans"].map((item) => (
-              <label key={item} className="flex items-center gap-2">
-                <input type="checkbox" className="accent-[#c99b53]" />
+              <label
+                key={item}
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                <input
+                  type="checkbox"
+                  className="appearance-none w-[14px] h-[14px] border border-[#c99b53] bg-transparent rounded-sm checked:bg-[#c99b53] checked:border-[#c99b53] cursor-pointer transition-all"
+                />
                 {item}
               </label>
             ))}
@@ -122,7 +158,10 @@ export default function RefineSearchSidebar() {
           <div className="grid grid-cols-2 gap-y-1.5 text-[13px] mb-3">
             {["Female", "Male", "Trans", "Couples"].map((item) => (
               <label key={item} className="flex items-center gap-2">
-                <input type="checkbox" className="accent-[#c99b53]" />
+                <input
+                  type="checkbox"
+                  className="appearance-none w-[14px] h-[14px] border border-[#c99b53] bg-transparent rounded-sm checked:bg-[#c99b53] checked:border-[#c99b53] cursor-pointer transition-all"
+                />
                 {item}
               </label>
             ))}
@@ -132,7 +171,10 @@ export default function RefineSearchSidebar() {
           <div className="grid grid-cols-2 gap-y-1.5 text-[13px]">
             {["Heterosexual", "Bisexual", "Homosexual"].map((item) => (
               <label key={item} className="flex items-center gap-2">
-                <input type="checkbox" className="accent-[#c99b53]" />
+                <input
+                  type="checkbox"
+                  className="appearance-none w-[14px] h-[14px] border border-[#c99b53] bg-transparent rounded-sm checked:bg-[#c99b53] checked:border-[#c99b53] cursor-pointer transition-all"
+                />
                 {item}
               </label>
             ))}

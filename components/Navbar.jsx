@@ -111,12 +111,13 @@ export default function Navbar({
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
           </div>
 
-          {/* Login */}
+          {/* Login Button */}
           <button
             onClick={onLoginClick}
-            className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-full p-2 transition-all hover:border-[#ff9a3c]/50"
+            className="flex items-center gap-2 border border-[#ff9a3c] text-white/70 justify-center py-2 rounded-md p-2"
           >
-            <User className="h-5 w-5 text-gray-300" />
+            <User className="h-5 w-5" />
+            <span>Login / Signup</span>
           </button>
         </div>
 
@@ -131,7 +132,7 @@ export default function Navbar({
 
       {/*  Mobile Sidebar / Off-Canvas Menu */}
       <div
-        className={`fixed inset-y-0 left-0 w-64 bg-[#0b0b0b] transform ${
+        className={`fixed inset-y-0 left-0 w-64 h-[100vh] bg-[#0b0b0b] transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out z-50 border-r border-white/10`}
       >

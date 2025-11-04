@@ -149,7 +149,7 @@ export default function AgencyProfile() {
               <AgencyContacts />
 
               {/* Availability */}
-              <div className="bg-black border border-zinc-500 rounded-xl p-5 md:p-6">
+              <div className=" border border-zinc-500 rounded-xl p-5 md:p-6">
                 <h3 className="text-lg md:text-xl font-medium flex items-center gap-2 mb-5">
                   <span className=" text-[#d4a574]">
                     <Clock />
@@ -195,7 +195,7 @@ export default function AgencyProfile() {
               </div>
 
               {/* Available Escorts */}
-              <div className="bg-black border border-zinc-700 p-4 sm:p-6 rounded-xl">
+              <div className=" border border-zinc-700 p-4 sm:p-6 rounded-xl">
                 {/* Title */}
                 <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-white">
                   Available Escorts
