@@ -2,7 +2,7 @@
 
 import { BiSolidUserBadge } from "react-icons/bi";
 import { Users } from "lucide-react";
-import { IoDiamond } from "react-icons/io5";
+import { IoCall, IoDiamond, IoHeart } from "react-icons/io5";
 import Image from "next/image";
 
 export default function MediaSections({ webcamShows, episodes }) {
@@ -64,25 +64,49 @@ export default function MediaSections({ webcamShows, episodes }) {
           {episodes.map((episode) => (
             <div
               key={episode.id}
-              className="relative flex-shrink-0 min-w-[160px] h-[210px] rounded-lg overflow-hidden group border border-[#D4A574]"
+              className="relative flex-shrink-0 min-w-[160px] h-[210px] rounded-lg overflow-hidden group border border-[#D4A574] cursor-pointer"
             >
+              {/* Profile Image */}
               <Image
                 src={episode.image}
                 alt={episode.name || "Diamond Escort"}
                 fill
-                className="object-cover group-hover:opacity-90 transition duration-300"
+                className="object-cover transition-all duration-500 group-hover:scale-110"
               />
-              {/* Live Badge */}
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              {/* Hover Content */}
+              <div className="absolute bottom-0 w-full p-3 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className="text-white font-semibold text-sm truncate">
+                    {episode.name || "Amili22"}
+                  </h3>
+                  <button className="text-white/90 hover:text-[#D4A574] transition-colors">
+                    <IoHeart className="w-5 h-5" />
+                  </button>
+                </div>
+                <p className="text-xs text-gray-300 mb-2">
+                  {episode.location || "France, Paris"}
+                </p>
+                {/* <button className="flex items-center justify-center gap-1 bg-[#D4A574] text-white text-xs px-3 py-1 rounded-md hover:bg-[#e0b26d] transition-all">
+                  <IoCall className="w-4 h-4" /> Call
+                </button> */}
+              </div>
+
               {/* VIP Badge */}
               <div
-                className="absolute top-2 right-2 flex items-center gap-1 
-  bg-gradient-to-r from-purple-700 to-indigo-600 
-  dark:from-purple-500 dark:to-indigo-400 
-  text-white text-[11px] font-semibold px-2.5 py-[3px] 
-  rounded-md border border-white/10 shadow-sm"
+                className="absolute top-4 -left-6 flex items-center gap-1 
+bg-gradient-to-r from-purple-700 to-indigo-600 rotate-[-35deg] w-36
+dark:from-purple-500 dark:to-indigo-400 
+text-white text-[11px] font-semibold px-2.5 py-[3px] 
+rounded-md border border-white/10 shadow-sm justify-center"
               >
-                VIP <IoDiamond className="text-blue-300 dark:text-yellow-300" />
+                VIP
               </div>
+
+              <IoDiamond className="text-blue-300 dark:text-yellow-300 absolute top-1 left-2 rotate-[-35deg]" />
             </div>
           ))}
         </div>

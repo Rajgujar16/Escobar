@@ -160,8 +160,13 @@ export default function RefineSearchSidebar() {
               <label key={item} className="flex items-center gap-2">
                 <input
                   type="checkbox"
-                  className="appearance-none w-[14px] h-[14px] border border-[#c99b53] bg-transparent rounded-sm checked:bg-[#c99b53] checked:border-[#c99b53] cursor-pointer transition-all"
+                  className="appearance-none w-[16px] h-[16px] border border-[#c99b53] bg-transparent rounded-sm 
+             checked:bg-[#c99b53] checked:border-[#c99b53] 
+             cursor-pointer transition-all duration-200 ease-in-out
+             hover:shadow-[0_0_6px_rgba(201,155,83,0.6)]
+             focus:outline-none focus:ring-2 focus:ring-[#c99b53]/40"
                 />
+
                 {item}
               </label>
             ))}

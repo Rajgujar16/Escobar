@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import MediaSections from "@/components/HomePage/MediaSections";
 import { FaChevronDown } from "react-icons/fa";
 import { CheckCircle, Star } from "lucide-react";
+import Image from "next/image";
 
 export default function EscortWebsite() {
   const [selectedFilters, setSelectedFilters] = useState({});
@@ -92,19 +93,26 @@ export default function EscortWebsite() {
               <div
                 onClick={() => router.push("/escortProfile")}
                 key={escort.id}
-                className="bg-[#0a0a0a] rounded-lg overflow-hidden cursor-pointer hover:transform hover:scale-105 transition border border-[#D4A574]"
+                className="group bg-[#0a0a0a] rounded-lg overflow-hidden cursor-pointer border border-[#D4A574] 
+                 transition-all duration-500 hover:shadow-[0_0_12px_rgba(212,165,116,0.3)]"
               >
-                <div className="relative w-full h-[130px] sm:h-[160px] md:h-[180px]">
-                  <img
-                    src={escort.image}
+                {/* Image Section */}
+                <div className="relative w-full h-[150px] sm:h-[160px] md:h-[170px] overflow-hidden">
+                  <Image
+                    src={escort?.image}
                     alt={escort?.name || "Escort"}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                   />
+
+                  {/* Optional dark overlay on hover */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500"></div>
                 </div>
+
                 {/* Info Section */}
                 <div className="p-2 sm:p-3 border-t border-[#2a2a2a]">
                   <div className="flex items-center gap-1">
-                    <h3 className="text-white font-semibold text-xs sm:text-sm md:text-base truncate">
+                    <h3 className="text-white font-semibold text-xs sm:text-sm truncate">
                       {escort?.name}
                     </h3>
                     <CheckCircle
@@ -113,12 +121,12 @@ export default function EscortWebsite() {
                     />
                   </div>
 
-                  <div className="flex justify-between lg:items-center mt-1 flex-col lg:flex-row md:flex-row ">
+                  <div className="flex justify-between items-center mt-1 flex-col sm:flex-row gap-1">
                     <p className="text-gray-400 text-[10px] sm:text-xs truncate">
                       {escort?.location}
                     </p>
 
-                    <div className="inline-flex items-center gap-1 border border-[#d4a574] text-[#d4a574] text-[10px] sm:text-xs px-1.5 py-[1px] sm:px-2 sm:py-0.5 rounded-md">
+                    <div className="inline-flex items-center gap-1 border border-[#d4a574] text-[#d4a574] text-[10px] sm:text-xs px-1.5 py-[1px] rounded-md">
                       <Star size={10} className="fill-[#d4a574]" />
                       <span className="truncate">{escort?.tag}</span>
                     </div>

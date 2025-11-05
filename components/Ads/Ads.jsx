@@ -20,7 +20,7 @@ export default function AdvertiseBanner() {
       </div>
 
       {/* Right Section */}
-      <button className="bg-[#D4A574] hover:bg-[#c4945f] text-black text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition self-end sm:self-auto whitespace-nowrap">
+      <button className="bg-[#D4A574] hover:bg-[#c4945f] text-black text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition sm:self-end  whitespace-nowrap">
         Place your Ad <FaArrowRight className="text-xs" />
       </button>
     </div>

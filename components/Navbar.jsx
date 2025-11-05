@@ -114,10 +114,10 @@ export default function Navbar({
           {/* Login Button */}
           <button
             onClick={onLoginClick}
-            className="flex items-center gap-2 border border-[#ff9a3c] text-white/70 justify-center py-2 rounded-md p-2"
+            className="flex items-center gap-2 border border-[#ff9a3c] bg-zinc-950 text-white/70 justify-center py-2 rounded-full p-2"
           >
             <User className="h-5 w-5" />
-            <span>Login / Signup</span>
+            <span className="text-xs">Login / Signup</span>
           </button>
         </div>
 
@@ -236,10 +236,10 @@ export default function Navbar({
               onLoginClick();
               setIsMenuOpen(false);
             }}
-            className="flex items-center gap-2 bg-[#ff9a3c] text-black justify-center py-2 rounded-md mt-4"
+            className="flex items-center gap-2 bg-[#ff9a3c] text-black justify-center py-2 rounded-full mt-4"
           >
             <User className="h-5 w-5" />
-            <span>Login / Signup</span>
+            <span className="text-xs">Login / Signup</span>
           </button>
         </div>
       </div>
