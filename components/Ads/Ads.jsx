@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaAd, FaArrowRight } from "react-icons/fa";
 
@@ -20,8 +21,10 @@ export default function AdvertiseBanner() {
       </div>
 
       {/* Right Section */}
-      <button className="bg-[#D4A574] hover:bg-[#c4945f] text-black text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition sm:self-end  whitespace-nowrap">
-        Place your Ad <FaArrowRight className="text-xs" />
+      <button className="bg-[#D4A574] hover:bg-[#c4945f] text-black text-xs sm:text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full  transition sm:self-end  whitespace-nowrap">
+        <Link href="/advertisement" className="flex items-center gap-2">
+          Place your Ad <FaArrowRight className="text-xs" />
+        </Link>
       </button>
     </div>
   );

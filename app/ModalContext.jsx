@@ -13,6 +13,10 @@ export function ModalProvider({ children }) {
   const openBooking = () => setIsBookingOpen(true);
   const closeBooking = () => setIsBookingOpen(false);
 
+  const [isGiftOpen, setIsGiftOpen] = useState(false);
+  const openGift = () => setIsGiftOpen(true);
+  const closeGift = () => setIsGiftOpen(false);
+
   return (
     <ModalContext.Provider
       value={{
@@ -22,6 +26,9 @@ export function ModalProvider({ children }) {
         isBookingOpen,
         openBooking,
         closeBooking,
+        isGiftOpen,
+        openGift,
+        closeGift,
       }}
     >
       {children}

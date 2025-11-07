@@ -1,8 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function MemberLogin({ t }) {
+export default function MemberLogin({ t, onClose }) {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -69,6 +71,11 @@ export default function MemberLogin({ t }) {
       {/* Submit Button */}
       <button
         type="submit"
+        onClick={() => {
+          localStorage.setItem("isLogin", "true");
+          router.push("/");
+          onClose();
+        }}
         className="w-full bg-gradient-to-r from-[#ff9a3c] to-[#ffb366] hover:from-[#ffb366] hover:to-[#ff9a3c] text-black font-medium py-2.5 sm:py-3 text-sm sm:text-base rounded-lg transition-all shadow-lg shadow-[#ff9a3c]/30 hover:shadow-[#ff9a3c]/50 hover:scale-[1.02] active:scale-[0.98]"
       >
         {t("login.loginButton")}

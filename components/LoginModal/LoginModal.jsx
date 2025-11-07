@@ -38,7 +38,7 @@ export default function LoginModal({ isOpen, onClose, t }) {
         case "affiliate":
           return <AffiliateLogin t={t} />;
         default:
-          return <MemberLogin t={t} />;
+          return <MemberLogin t={t} onClose={onClose} />;
       }
     } else {
       switch (activeTab) {
@@ -49,7 +49,7 @@ export default function LoginModal({ isOpen, onClose, t }) {
         case "affiliate":
           return <AffiliateRegister t={t} />;
         default:
-          return <MemberRegister t={t} />;
+          return <MemberRegister t={t} onClose={onClose} />;
       }
     }
   };

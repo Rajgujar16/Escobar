@@ -11,7 +11,7 @@ export default function EscortWebsite() {
   const [selectedFilters, setSelectedFilters] = useState({});
   const router = useRouter();
 
-  const escorts = Array(16)
+  const escorts = Array(15)
     .fill(null)
     .map((_, i) => ({
       id: i + 1,
@@ -24,7 +24,7 @@ export default function EscortWebsite() {
       location: "France, Paris",
     }));
 
-  const webcamShows = Array(10)
+  const webcamShows = Array(20)
     .fill(null)
     .map((_, i) => ({
       id: i + 1,
@@ -64,14 +64,14 @@ export default function EscortWebsite() {
       <MediaSections webcamShows={webcamShows} episodes={episodes} />
 
       {/* Main Content */}
-      <div className="flex flex-col lg:flex-row px-4 sm:px-6 lg:px-8  gap-6 lg:gap-8 items-start">
+      <div className="flex flex-col lg:flex-row px-4 sm:px-6 lg:px-8  gap-6 lg:gap-8 items-start relative">
         {/* Sidebar Filters */}
-        <aside className="w-full lg:w-[260px] flex-shrink-0">
+        <aside className="w-full lg:w-[260px]  flex-shrink-0">
           <RefineSearchSidebar />
         </aside>
 
         {/* Escort Grid */}
-        <main className="flex-1 w-full">
+        <main className="flex-1 w-full py-2">
           <div className="relative w-full sm:w-auto flex justify-end mb-6">
             <select
               className="appearance-none  bg-gradient-to-r from-[#141414] to-[#1a1a1a] 
@@ -136,7 +136,7 @@ export default function EscortWebsite() {
             ))}
           </div>
           {/* Pagination */}
-          <div className="flex justify-center items-center gap-2 mt-8 flex-wrap">
+          <div className="flex justify-center items-center gap-2  flex-wrap absolute bottom-0 right-1/3 ">
             <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-3 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
               ←
             </button>

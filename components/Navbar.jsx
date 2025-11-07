@@ -2,10 +2,11 @@
 
 import { Search, User, ChevronDown, Globe, Menu, X } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "@/public/logo.png";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ProfileDropdown from "@/components/HomePage/ProfileDropdown";
 
 export default function Navbar({
   onLoginClick,
@@ -15,7 +16,13 @@ export default function Navbar({
 }) {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const loginStatus = localStorage.getItem("isLogin") === "true";
+    setIsLoggedIn(loginStatus);
+  }, []);
 
   const languages = [
     { code: "en", name: "English" },
@@ -112,13 +119,24 @@ export default function Navbar({
           </div>
 
           {/* Login Button */}
-          <button
-            onClick={onLoginClick}
-            className="flex items-center gap-2 border border-[#ff9a3c] bg-zinc-950 text-white/70 justify-center py-2 rounded-full p-2"
-          >
-            <User className="h-5 w-5" />
-            <span className="text-xs">Login / Signup</span>
-          </button>
+          {isLoggedIn ? (
+            // <button
+            //   onClick={() => router.push("/profile")}
+            //   className="flex items-center gap-2 border border-[#ff9a3c] bg-zinc-950 text-[#ff9a3c] justify-center py-2 rounded-full px-4 hover:bg-[#ff9a3c]/10 transition"
+            // >
+            //   <User className="h-5 w-5" />
+            // </button>
+
+            <ProfileDropdown />
+          ) : (
+            <button
+              onClick={onLoginClick}
+              className="flex items-center gap-2 border border-[#ff9a3c] bg-zinc-950 text-white/70 justify-center py-2 rounded-full px-4 hover:bg-[#ff9a3c]/10 transition"
+            >
+              <User className="h-5 w-5" />
+              <span className="text-xs">Login / Signup</span>
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -231,16 +249,27 @@ export default function Navbar({
           </div>
 
           {/* Login Button */}
-          <button
-            onClick={() => {
-              onLoginClick();
-              setIsMenuOpen(false);
-            }}
-            className="flex items-center gap-2 bg-[#ff9a3c] text-black justify-center py-2 rounded-full mt-4"
-          >
-            <User className="h-5 w-5" />
-            <span className="text-xs">Login / Signup</span>
-          </button>
+          {isLoggedIn ? (
+            <button
+              onClick={() => {
+                router.push("/userProfile"), setIsMenuOpen(false);
+              }}
+              className="flex items-center gap-2 border border-[#ff9a3c] bg-zinc-950 text-[#ff9a3c] justify-center py-2 rounded-full px-4 hover:bg-[#ff9a3c]/10 transition"
+            >
+              <User className="h-5 w-5" />
+              <span className="text-xs">Profile</span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                onLoginClick(), setIsMenuOpen(false);
+              }}
+              className="flex items-center gap-2 border border-[#ff9a3c] bg-zinc-950 text-white/70 justify-center py-2 rounded-full px-4 hover:bg-[#ff9a3c]/10 transition"
+            >
+              <User className="h-5 w-5" />
+              <span className="text-xs">Login / Signup</span>
+            </button>
+          )}
         </div>
       </div>
 

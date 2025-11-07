@@ -83,7 +83,7 @@ export default function MediaSections({ webcamShows, episodes }) {
                   <h3 className="text-white font-semibold text-sm truncate">
                     {episode.name || "Amili22"}
                   </h3>
-                  <button className="text-white/90 hover:text-[#D4A574] transition-colors">
+                  <button className="text-white/90 hover:text-red-600 transition-colors">
                     <IoHeart className="w-5 h-5" />
                   </button>
                 </div>

@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoginModal from "@/components/LoginModal/LoginModal";
 import BookingModal from "@/components/EscortProfile/BookingModal";
+import GiftPopup from "@/components/LiveStream/GiftPopup";
 import { ModalProvider, useModal } from "./ModalContext";
 import Ads from "@/components/Ads/Ads";
 
@@ -20,8 +21,15 @@ const translations = { en, fr, pt, es };
 const inter = Inter({ subsets: ["latin"] });
 
 function LayoutContent({ children, currentLocale, setCurrentLocale, t }) {
-  const { isLoginOpen, closeLogin, isBookingOpen, closeBooking, openLogin } =
-    useModal();
+  const {
+    isLoginOpen,
+    closeLogin,
+    isBookingOpen,
+    closeBooking,
+    openLogin,
+    isGiftOpen,
+    closeGift,
+  } = useModal();
 
   return (
     <>
@@ -34,6 +42,7 @@ function LayoutContent({ children, currentLocale, setCurrentLocale, t }) {
 
       <LoginModal isOpen={isLoginOpen} onClose={closeLogin} t={t} />
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
+      <GiftPopup isOpen={isGiftOpen} onClose={closeGift} />
 
       {children}
       <Ads />
