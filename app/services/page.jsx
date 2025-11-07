@@ -62,10 +62,10 @@ export default function OurService() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-7 hover:border-[#d4a574] transition-all duration-300 group"
+              className="bg-[#181717] border border-[#2a2a2a] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-7 hover:border-[#d4a574] transition-all duration-300 group"
             >
               {/* Icon */}
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#2a2a2a] rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-[#d4a574]/10 transition-colors duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14  sm:rounded-xl flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-[#d4a574]/10 transition-colors duration-300">
                 {service.icon}
               </div>
 

@@ -8,7 +8,7 @@ import EscortProfileRightSection from "@/components/EscortProfile/EscortProfileR
 export default function EscortProfilePage() {
   return (
     <div className="min-h-screen text-white">
-      <div className=" mx-auto px-8 pb-4">
+      <div className=" mx-auto px-4 sm:px-8 pb-4">
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-6">
           {/* Left Column - Booking Card */}

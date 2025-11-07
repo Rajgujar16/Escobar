@@ -6,7 +6,7 @@ export default function AgencyContacts() {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-4 md:gap-4 gap-2">
         {/* Contact Information */}
-        <div className="backdrop-blur-sm rounded-lg lg:p-4 md:p-4 p-2  border border-zinc-500">
+        <div className="backdrop-blur-sm rounded-lg lg:p-4 md:p-4 p-2 bg-[#000000]  border border-zinc-500">
           <h3 className="lg:text-lg text-md font-semibold mb-4">
             Contact Information
           </h3>
@@ -35,7 +35,7 @@ export default function AgencyContacts() {
         </div>
 
         {/* Location Details */}
-        <div className=" backdrop-blur-sm rounded-lg g:p-4 md:p-4 p-2  border border-zinc-500">
+        <div className=" backdrop-blur-sm rounded-lg g:p-4 md:p-4 p-2 bg-[#000000]  border border-zinc-500">
           <h3 className="lg:text-lg text-md font-semibold mb-4">
             Location Details
           </h3>

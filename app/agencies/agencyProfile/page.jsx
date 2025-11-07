@@ -82,7 +82,7 @@ export default function AgencyProfile() {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-900 text-white">
+    <div className="min-h-screen bg-[#0e0e0e] text-white">
       {/* Hero Section - 50% visible */}
       <div className="relative h-[350px] md:h-[400px]">
         {/* Background Image */}
@@ -94,7 +94,7 @@ export default function AgencyProfile() {
           }}
         />
         {/* Dark gradient overlay - stronger at bottom */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-900/60 to-zinc-900" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0e0e0e]/60 to-[#0e0e0e]" />
       </div>
 
       {/* Profile Section - Overlapping hero */}
@@ -135,7 +135,7 @@ export default function AgencyProfile() {
             {/* Left Column - 3/4 width */}
             <div className="lg:col-span-4 space-y-5">
               {/* About Me */}
-              <div className="bg-zinc-900/50 backdrop-blur-sm rounded-lg">
+              <div className=" backdrop-blur-sm rounded-lg">
                 <h3 className="text-xl font-semibold mb-3">About Me</h3>
                 <p className="text-gray-200 leading-relaxed lg:text-md md:text-md text-sm">
                   Discover the art of true presence — confident, charming, and
@@ -149,7 +149,7 @@ export default function AgencyProfile() {
               <AgencyContacts />
 
               {/* Availability */}
-              <div className=" border border-zinc-500 rounded-xl p-5 md:p-6">
+              <div className=" border border-zinc-500 rounded-xl p-5 md:p-6 bg-[#000000]">
                 <h3 className="text-lg md:text-xl font-medium flex items-center gap-2 mb-5">
                   <span className=" text-[#d4a574]">
                     <Clock />
@@ -195,7 +195,7 @@ export default function AgencyProfile() {
               </div>
 
               {/* Available Escorts */}
-              <div className=" border border-zinc-700 p-4 sm:p-6 rounded-xl">
+              <div className=" border border-zinc-700 p-4 sm:p-6 rounded-xl bg-[#000000]">
                 {/* Title */}
                 <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-white">
                   Available Escorts
@@ -203,7 +203,7 @@ export default function AgencyProfile() {
                 <AgencyEscorts escorts={escorts} />
               </div>
 
-              <div className="bg-zinc-900/50 backdrop-blur-sm rounded-lg lg:p-6 p-2 border border-zinc-500">
+              <div className="bg-[#0e0e0e] backdrop-blur-sm rounded-lg lg:p-6 p-2 border border-zinc-500">
                 <AgencyReview />
               </div>
             </div>

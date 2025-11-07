@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen bg-zinc-900 lg:pt-24 md:pt-24 pt-20`}
+        className={`${inter.className} min-h-screen bg-[#0e0e0e] lg:pt-24 md:pt-24 pt-20`}
       >
         <ModalProvider>
           <LayoutContent

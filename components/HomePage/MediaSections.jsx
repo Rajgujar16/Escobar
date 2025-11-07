@@ -90,23 +90,18 @@ export default function MediaSections({ webcamShows, episodes }) {
                 <p className="text-xs text-gray-300 mb-2">
                   {episode.location || "France, Paris"}
                 </p>
-                {/* <button className="flex items-center justify-center gap-1 bg-[#D4A574] text-white text-xs px-3 py-1 rounded-md hover:bg-[#e0b26d] transition-all">
-                  <IoCall className="w-4 h-4" /> Call
-                </button> */}
               </div>
 
-              {/* VIP Badge */}
+              {/* Smaller, Purple VIP Badge */}
               <div
-                className="absolute top-4 -left-6 flex items-center gap-1 
-bg-gradient-to-r from-purple-700 to-indigo-600 rotate-[-35deg] w-36
-dark:from-purple-500 dark:to-indigo-400 
-text-white text-[11px] font-semibold px-2.5 py-[3px] 
-rounded-md border border-white/10 shadow-sm justify-center"
+                className="absolute top-3 -left-5 flex items-center justify-center gap-1
+bg-[#682977] rotate-[-35deg] w-24
+text-white text-[9px] font-semibold px-1.5 py-[2px]
+rounded-sm border border-white/10 shadow-md"
               >
+                <IoDiamond className="w-3 h-3 text-pink-200" />
                 VIP
               </div>
-
-              <IoDiamond className="text-blue-300 dark:text-yellow-300 absolute top-1 left-2 rotate-[-35deg]" />
             </div>
           ))}
         </div>
