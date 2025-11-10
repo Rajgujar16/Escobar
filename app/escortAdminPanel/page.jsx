@@ -1,95 +1,109 @@
 "use client";
-
-import Image from "next/image";
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
-import * as Tabs from "@radix-ui/react-tabs";
+import AdminEscortProfileTab from "@/components/EscortAdminProfile/tabs/AdminEscortProfileTab";
 
-export const dynamic = "force-dynamic";
+// import SubscriptionTab from "./Tabs/SubscriptionTab";
+// import AlertsTab from "./Tabs/AlertsTab";
+// import ActivityTab from "./Tabs/ActivityTab";
+// import EarningsTab from "./Tabs/EarningsTab";
+// import LiveStudioTab from "./Tabs/LiveStudioTab";
+// import SettingsTab from "./Tabs/SettingsTab";
 
 export default function EscortAdminPanel() {
-  const [activeTab, setActiveTab] = useState("profile");
+  const [activeTab, setActiveTab] = useState("Profile");
 
   const tabs = [
-    { id: "profile", label: "Profile" },
-    { id: "subscription", label: "Subscription" },
-    { id: "alerts", label: "Alerts & Updates" },
-    { id: "activity", label: "Activity Log" },
-    { id: "earnings", label: "Earnings & Withdrawals" },
-    { id: "studio", label: "Live Studio" },
-    { id: "settings", label: "Settings & Preferences" },
+    "Subscription",
+    "Profile",
+    "Alerts & Updates",
+    "Activity Log",
+    "Earnings & Withdrawals",
+    "Live Studio",
+    "Settings & Preferences",
   ];
 
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case "Profile":
+        return <AdminEscortProfileTab />;
+      // case "Subscription":
+      //   return <SubscriptionTab />;
+      // case "Alerts & Updates":
+      //   return <AlertsTab />;
+      // case "Activity Log":
+      //   return <ActivityTab />;
+      // case "Earnings & Withdrawals":
+      //   return <EarningsTab />;
+      // case "Live Studio":
+      //   return <LiveStudioTab />;
+      // case "Settings & Preferences":
+      //   return <SettingsTab />;
+      default:
+        return <p className="text-gray-400">Select a tab.</p>;
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#0d0d0d] text-white flex flex-col items-center pt-12">
+    <div className="min-h-screen text-white px-28">
       {/* Profile Section */}
-      <div className="flex items-center justify-between w-[90%] max-w-4xl">
-        <div className="flex items-center gap-5">
-          <div className="relative h-28 w-28 rounded-full overflow-hidden">
-            <Image
-              src="/profile.jpg"
+      <div className="flex items-start justify-between pt-6 pb-8">
+        <div className="flex items-start gap-5">
+          <div className="relative h-36 w-36 rounded-full overflow-hidden border-[3px] border-cyan-400 shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop"
               alt="Profile"
-              fill
-              className="object-cover"
+              className="object-cover w-full h-full"
             />
           </div>
 
-          <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-lg font-semibold">Scarlet, 28</h2>
+          <div className="pt-3">
+            <div className="flex items-center gap-2 mb-0.5">
+              <h2 className="text-base font-normal">Scarlett, 28</h2>
               <CheckCircle2 className="text-blue-500 h-4 w-4" />
             </div>
+
             <a
               href="http://wildfire.com/gingerbreadperson"
-              target="_blank"
-              className="text-gray-400 text-sm hover:underline"
+              className="text-gray-500 text-xs hover:underline block mb-5"
             >
               http://wildfire.com/gingerbreadperson
             </a>
 
-            <div className="mt-4">
-              <button className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 text-sm rounded-md">
-                View Profile PLUS
-              </button>
-            </div>
+            <button className="bg-[#1f1f1f] hover:bg-[#2a2a2a] text-white px-5 py-2 text-xs rounded transition">
+              View Profile PLUS
+            </button>
           </div>
         </div>
 
-        <button className="border border-[#ff9a3c] hover:bg-[#ff9a3c] hover:text-black px-5 py-2 rounded-full text-sm transition">
+        <button className="border border-gray-700 hover:border-gray-600 text-white px-7 py-2 rounded-full text-xs transition">
           Logout
         </button>
       </div>
 
-      {/* Tabs Section */}
-      <div className="w-full border-t border-gray-800 mt-12">
-        <Tabs.Root value={activeTab} onValueChange={setActiveTab}>
-          {/* 👇 FIXED: Tabs.List wrapper added */}
-          <Tabs.List className="flex justify-center py-4 gap-8 flex-wrap text-sm">
-            {tabs.map((tab) => (
-              <Tabs.Trigger
-                key={tab.id}
-                value={tab.id}
-                className={`transition ${
-                  activeTab === tab.id
-                    ? "text-[#ff9a3c]"
-                    : "text-gray-400 hover:text-[#ff9a3c]"
-                }`}
-              >
-                {tab.label}
-              </Tabs.Trigger>
-            ))}
-          </Tabs.List>
-
+      {/* Tabs */}
+      <div className="border-t border-gray-800">
+        <div className="flex justify-start gap-10 pt-4 text-sm relative">
           {tabs.map((tab) => (
-            <Tabs.Content
-              key={tab.id}
-              value={tab.id}
-              className="w-[90%] max-w-4xl text-gray-300 py-6"
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`pb-2 relative transition whitespace-nowrap ${
+                activeTab === tab
+                  ? "text-[#D4A574]"
+                  : "text-gray-500 hover:text-gray-400"
+              }`}
             >
-              <p>{`This is the ${tab.label} section.`}</p>
-            </Tabs.Content>
+              {tab}
+              {activeTab === tab && (
+                <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#D4A574]" />
+              )}
+            </button>
           ))}
-        </Tabs.Root>
+        </div>
+
+        {/* Tab Content */}
+        <div className="px-12 py-12">{renderTabContent()}</div>
       </div>
     </div>
   );
