@@ -73,7 +73,7 @@ export default function MemberLogin({ t, onClose }) {
         type="submit"
         onClick={() => {
           localStorage.setItem("isLogin", "true");
-          router.push("/");
+          router.push("/userProfile");
           onClose();
         }}
         className="w-full bg-gradient-to-r from-[#ff9a3c] to-[#ffb366] hover:from-[#ffb366] hover:to-[#ff9a3c] text-black font-medium py-2.5 sm:py-3 text-sm sm:text-base rounded-lg transition-all shadow-lg shadow-[#ff9a3c]/30 hover:shadow-[#ff9a3c]/50 hover:scale-[1.02] active:scale-[0.98]"
