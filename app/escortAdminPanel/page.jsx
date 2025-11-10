@@ -5,6 +5,8 @@ import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import * as Tabs from "@radix-ui/react-tabs";
 
+export const dynamic = "force-dynamic";
+
 export default function EscortAdminPanel() {
   const [activeTab, setActiveTab] = useState("profile");
 
@@ -60,23 +62,32 @@ export default function EscortAdminPanel() {
 
       {/* Tabs Section */}
       <div className="w-full border-t border-gray-800 mt-12">
-        <Tabs.Root
-          value={activeTab}
-          onValueChange={setActiveTab}
-          className="flex justify-center py-4 gap-8 flex-wrap text-sm"
-        >
+        <Tabs.Root value={activeTab} onValueChange={setActiveTab}>
+          {/* 👇 FIXED: Tabs.List wrapper added */}
+          <Tabs.List className="flex justify-center py-4 gap-8 flex-wrap text-sm">
+            {tabs.map((tab) => (
+              <Tabs.Trigger
+                key={tab.id}
+                value={tab.id}
+                className={`transition ${
+                  activeTab === tab.id
+                    ? "text-[#ff9a3c]"
+                    : "text-gray-400 hover:text-[#ff9a3c]"
+                }`}
+              >
+                {tab.label}
+              </Tabs.Trigger>
+            ))}
+          </Tabs.List>
+
           {tabs.map((tab) => (
-            <Tabs.Trigger
+            <Tabs.Content
               key={tab.id}
               value={tab.id}
-              className={`transition ${
-                activeTab === tab.id
-                  ? "text-[#ff9a3c]"
-                  : "text-gray-400 hover:text-[#ff9a3c]"
-              }`}
+              className="w-[90%] max-w-4xl text-gray-300 py-6"
             >
-              {tab.label}
-            </Tabs.Trigger>
+              <p>{`This is the ${tab.label} section.`}</p>
+            </Tabs.Content>
           ))}
         </Tabs.Root>
       </div>
