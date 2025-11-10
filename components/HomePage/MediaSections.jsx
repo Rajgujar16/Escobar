@@ -64,7 +64,7 @@ export default function MediaSections({ webcamShows, episodes }) {
           {episodes.map((episode) => (
             <div
               key={episode.id}
-              className="relative flex-shrink-0 min-w-[160px] h-[210px] rounded-lg overflow-hidden group border border-[#D4A574] cursor-pointer"
+              className="relative flex-shrink-0 min-w-[202px] h-[270px] rounded-lg overflow-hidden group border border-[#D4A574] cursor-pointer"
             >
               {/* Profile Image */}
               <Image

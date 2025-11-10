@@ -23,17 +23,24 @@ export default function EscortProfileMidSection() {
   ];
 
   const services = [
-    { id: 1, name: "Full (Premium Experience)" },
-    { id: 2, name: "Travel Companion" },
-    { id: 3, name: "Massage" },
-    { id: 4, name: "BDSM" },
-    { id: 5, name: "Striptease" },
-    { id: 6, name: "Role Playing" },
-    { id: 7, name: "Overnight" },
-    { id: 8, name: "Couples" },
-    { id: 9, name: "Video Calls" },
-    { id: 10, name: "Dinner Date" },
-    { id: 11, name: "Custom Requests" },
+    { id: 1, name: "Normal Sex" },
+    { id: 2, name: "69 Position" },
+    { id: 3, name: "Anal Sex" },
+    { id: 4, name: "Cum in Mouth" },
+    { id: 5, name: "Cum on Face" },
+    { id: 6, name: "Cum On Body" },
+    { id: 7, name: "French Kissing" },
+    { id: 8, name: "Girlfriend Experience" },
+    { id: 9, name: "Blowjob with Condom" },
+    { id: 10, name: "Blowjob without Condom" },
+    { id: 11, name: "Sex in Different Positions" },
+    { id: 12, name: "Intimate Massage" },
+    { id: 13, name: "Deepthroat" },
+    { id: 14, name: "Sex Between Breasts" },
+    { id: 15, name: "Handjob" },
+    { id: 16, name: "Bisexual (For Couples)" },
+    { id: 17, name: "Group Sex (With Men)" },
+    { id: 18, name: "Striptease" },
   ];
 
   const pricing = [
@@ -180,7 +187,7 @@ export default function EscortProfileMidSection() {
           <h2 className="text-lg font-semibold mb-4 text-white">
             Services Offered
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3  sm:max-h-full overflow-y-auto max-h-[200px]">
             {services.map((service) => (
               <div
                 key={service.id}

@@ -11,14 +11,24 @@ import {
   CheckCircle2Icon,
   Sparkle,
 } from "lucide-react";
-import { FaEye, FaFlag, FaUser, FaVideo, FaHeart } from "react-icons/fa";
-import { BsTelephoneOutboundFill } from "react-icons/bs";
+import {
+  FaEye,
+  FaFlag,
+  FaUser,
+  FaVideo,
+  FaHeart,
+  FaWhatsapp,
+  FaTelegram,
+} from "react-icons/fa";
+import { BsTelephoneOutboundFill, BsChatText } from "react-icons/bs";
+import { IoClose } from "react-icons/io5";
 import BookingModal from "@/components/EscortProfile/BookingModal";
-
 import { HiUsers } from "react-icons/hi";
 import { useModal } from "@/app/ModalContext";
+
 export default function EscortProfileRightSection() {
   const { openBooking } = useModal();
+  const [showContactOptions, setShowContactOptions] = useState(false);
 
   const availability = [
     { day: "Monday", time: "08:00 AM - 01:00 AM" },
@@ -29,11 +39,44 @@ export default function EscortProfileRightSection() {
     { day: "Saturday", time: "10:00 AM - 03:00 AM" },
     { day: "Sunday", time: "By Appointment" },
   ];
+
+  const contactOptions = [
+    {
+      name: "WhatsApp",
+      icon: FaWhatsapp,
+      color: "text-green-500",
+      bgColor: "hover:bg-green-500/10",
+    },
+    {
+      name: "Telegram",
+      icon: FaTelegram,
+      color: "text-blue-400",
+      bgColor: "hover:bg-blue-400/10",
+    },
+    {
+      name: "SMS",
+      icon: BsChatText,
+      color: "text-gray-400",
+      bgColor: "hover:bg-gray-400/10",
+    },
+    {
+      name: "Call",
+      icon: BsTelephoneOutboundFill,
+      color: "text-amber-500",
+      bgColor: "hover:bg-amber-500/10",
+    },
+  ];
+
+  const handleContactOptionClick = (option) => {
+    console.log(`Selected contact option: ${option}`);
+    setShowContactOptions(false);
+  };
+
   return (
     <>
-      <div className="sticky top-24  space-y-6">
+      <div className="sticky top-24 space-y-6">
         {/* Profile Card */}
-        <div className="bg-[#0f0f0f] rounded-2xl p-6 border border-[#1f1f1f] w-full">
+        <div className="bg-[#0f0f0f] rounded-2xl p-6 border border-[#1f1f1f] w-full relative">
           <div className="flex items-center gap-3 mb-4">
             <img
               src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop"
@@ -83,9 +126,52 @@ export default function EscortProfileRightSection() {
             <FaVideo /> Book a Live Session
           </button>
 
-          <button className="w-full border border-[#d4a574]/50 text-white py-3 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-[#1a1a1a] transition-all">
-            <BsTelephoneOutboundFill /> Contact
-          </button>
+          <div className="relative">
+            <button
+              className="w-full border border-[#d4a574]/50 text-white py-3 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-[#1a1a1a] transition-all"
+              onClick={() => setShowContactOptions(!showContactOptions)}
+            >
+              <BsTelephoneOutboundFill /> Contact
+            </button>
+
+            {/* Floating Contact Options */}
+            {showContactOptions && (
+              <div className="absolute bottom-full left-0 right-0 mb-2 bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-3 shadow-2xl z-10 animate-in fade-in slide-in-from-bottom-2 duration-200">
+                {/* Close Button */}
+                <button
+                  onClick={() => setShowContactOptions(false)}
+                  className="absolute top-2 right-2 text-gray-400 hover:text-white transition-colors"
+                >
+                  <IoClose size={18} />
+                </button>
+
+                <h4 className="text-white font-medium text-sm mb-3 text-center">
+                  Choose Contact Method
+                </h4>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {contactOptions.map((option, index) => {
+                    const IconComponent = option.icon;
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => handleContactOptionClick(option.name)}
+                        className={`flex flex-col items-center justify-center p-3 rounded-lg border border-[#2a2a2a] ${option.bgColor} transition-all duration-200 group`}
+                      >
+                        <IconComponent
+                          size={20}
+                          className={`${option.color} mb-1 group-hover:scale-110 transition-transform`}
+                        />
+                        <span className="text-xs text-gray-300 group-hover:text-white">
+                          {option.name}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
 
           <hr className="border-[#1f1f1f] my-4" />
 

@@ -4,17 +4,24 @@ import { FiX, FiSearch } from "react-icons/fi";
 
 export default function Services() {
   const allServices = [
+    "Normal Sex",
+    "69 Position",
+    "Anal Sex",
+    "Cum in Mouth",
+    "Cum on Face",
+    "Cum On Body",
+    "French Kissing",
+    "Girlfriend Experience",
+    "Blowjob with Condom",
+    "Blowjob without Condom",
+    "Sex in Different Positions",
+    "Intimate Massage",
+    "Deepthroat",
+    "Sex Between Breasts",
     "Handjob",
     "Bisexual (For Couples)",
     "Group Sex (With Men)",
-    "GFE (Girlfriend Experience)",
-    "PSE (Pornstar Experience)",
-    "BDSM",
-    "Massage",
-    "Anal Sex",
-    "Role Play",
-    "Fetish",
-    "Escort for Events",
+    "Striptease",
   ];
 
   const [search, setSearch] = useState("");

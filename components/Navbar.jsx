@@ -18,11 +18,12 @@ export default function Navbar({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
+  const checkLoginStatus = localStorage.getItem("isLogin");
 
   useEffect(() => {
-    const loginStatus = localStorage.getItem("isLogin") === "true";
+    const loginStatus = checkLoginStatus === "true";
     setIsLoggedIn(loginStatus);
-  }, []);
+  }, [checkLoginStatus]);
 
   const languages = [
     { code: "en", name: "English" },
