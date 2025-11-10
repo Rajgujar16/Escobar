@@ -1,11 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function IndependentLogin({ t }) {
+export default function IndependentLogin({ t, onClose }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const router = useRouter();
 
   return (
     <form
@@ -68,6 +70,10 @@ export default function IndependentLogin({ t }) {
 
       {/* Login Button */}
       <button
+        onClick={() => {
+          router.push("/escortAdminPanel");
+          onClose();
+        }}
         type="submit"
         className="w-full bg-gradient-to-r from-[#ff9a3c] to-[#ffb366] hover:from-[#ffb366] hover:to-[#ff9a3c] text-black font-medium py-2.5 sm:py-3 text-sm sm:text-base rounded-lg transition-all shadow-lg shadow-[#ff9a3c]/30 hover:shadow-[#ff9a3c]/50 hover:scale-[1.02] active:scale-[0.98]"
       >

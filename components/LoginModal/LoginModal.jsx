@@ -32,11 +32,11 @@ export default function LoginModal({ isOpen, onClose, t }) {
     if (isLogin) {
       switch (activeTab) {
         case "independent":
-          return <IndependentLogin t={t} />;
+          return <IndependentLogin t={t} onClose={onClose} />;
         case "agency":
-          return <AgencyLogin t={t} />;
+          return <AgencyLogin t={t} onClose={onClose} />;
         case "affiliate":
-          return <AffiliateLogin t={t} />;
+          return <AffiliateLogin t={t} onClose={onClose} />;
         default:
           return <MemberLogin t={t} onClose={onClose} />;
       }

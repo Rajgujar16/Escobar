@@ -38,8 +38,8 @@ export default function AdminEscortProfileTab() {
   });
 
   return (
-    <div className="min-h-screen  text-white p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen text-white">
+      <div className="">
         {/* Header */}
         <div className="flex justify-between items-center mb-2">
           <h1 className="text-xl font-normal">Your Profile</h1>
@@ -95,9 +95,9 @@ export default function AdminEscortProfileTab() {
         </div>
 
         {/* Main Grid Layout */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-5 gap-6">
           {/* Left Column - Personal Information */}
-          <div>
+          <div className="col-span-3">
             <div className="bg-[#0f0f0f] rounded-lg p-6 border border-gray-900">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-sm font-medium">Personal Information</h2>
@@ -554,7 +554,7 @@ export default function AdminEscortProfileTab() {
           </div>
 
           {/* Right Column */}
-          <div className="space-y-6">
+          <div className="space-y-6 col-span-2">
             {/* Services Offered */}
             <div className="bg-[#0f0f0f] rounded-lg p-6 border border-gray-900">
               <div className="flex justify-between items-center mb-6">
