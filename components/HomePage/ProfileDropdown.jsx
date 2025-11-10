@@ -8,7 +8,7 @@ export default function ProfileDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
-  // Dummy data (replace with real user info)
+
   const user = {
     name: "Eastan01",
     email: "Eastan@gmail.com",

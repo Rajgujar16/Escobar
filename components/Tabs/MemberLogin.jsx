@@ -74,6 +74,7 @@ export default function MemberLogin({ t, onClose }) {
         onClick={() => {
           if (typeof window !== "undefined") {
             localStorage.setItem("isLogin", "true");
+            window.dispatchEvent(new Event("storage"));
           }
           router.push("/userProfile");
           onClose();

@@ -20,11 +20,20 @@ export default function Navbar({
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window === "undefined") return;
+
+    const updateLoginStatus = () => {
       const loginStatus = localStorage.getItem("isLogin") === "true";
       setIsLoggedIn(loginStatus);
-    }
+    };
+
+    updateLoginStatus();
+
+    window.addEventListener("storage", updateLoginStatus);
+
+    return () => window.removeEventListener("storage", updateLoginStatus);
   }, []);
+
   const languages = [
     { code: "en", name: "English" },
     { code: "fr", name: "French" },

@@ -11,7 +11,7 @@ export default function EscortWebsite() {
   const [selectedFilters, setSelectedFilters] = useState({});
   const router = useRouter();
 
-  const escorts = Array(15)
+  const escorts = Array(12)
     .fill(null)
     .map((_, i) => ({
       id: i + 1,
@@ -66,29 +66,35 @@ export default function EscortWebsite() {
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row px-4 sm:px-6 lg:px-8  gap-6 lg:gap-8 items-start relative">
         {/* Sidebar Filters */}
-        <aside className="w-full lg:w-[260px]  flex-shrink-0">
+        <aside className="w-full sm:w-[260px] flex-shrink-0">
           <RefineSearchSidebar />
         </aside>
 
         {/* Escort Grid */}
         <main className="flex-1 w-full py-2">
-          <div className="relative w-full sm:w-auto flex justify-end mb-6">
-            <select
-              className="appearance-none  bg-gradient-to-r from-[#141414] to-[#1a1a1a] 
+          <div className="border border-[#D4A574] rounded-lg my-3 p-4 flex items-center justify-between gap-4 ">
+            <p className="text-[#D4A574] font-bold text-sm sm:text-base">
+              Active Filters
+            </p>
+            <div className="relative w-full sm:w-auto flex justify-end ">
+              <select
+                className="appearance-none  bg-gradient-to-r from-[#141414] to-[#1a1a1a] 
         text-white border border-[#2a2a2a]/70 rounded-lg px-4 py-2.5 pr-8 
         text-xs sm:text-sm font-medium 
         focus:outline-none focus:border-[#D4A574] focus:ring-1 focus:ring-[#D4A574]/40
         transition duration-200 hover:border-[#D4A574]/60 "
-            >
-              <option className="text-zinc-900">Most Popular</option>
-              <option className="text-zinc-900">Newest</option>
-              <option className="text-zinc-900">Rating</option>
-            </select>
+              >
+                <option className="text-zinc-900">Most Popular</option>
+                <option className="text-zinc-900">Newest</option>
+                <option className="text-zinc-900">Rating</option>
+              </select>
 
-            {/* React Icon as dropdown arrow */}
-            <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#D4A574] pointer-events-none text-xs sm:text-sm" />
+              {/* React Icon as dropdown arrow */}
+              <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#D4A574] pointer-events-none text-xs sm:text-sm" />
+            </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-3">
             {escorts.map((escort) => (
               <div
                 onClick={() => router.push("/escortProfile")}
@@ -97,7 +103,7 @@ export default function EscortWebsite() {
                  transition-all duration-500 hover:shadow-[0_0_12px_rgba(212,165,116,0.3)]"
               >
                 {/* Image Section */}
-                <div className="relative w-full h-[150px] sm:h-[160px] md:h-[170px] overflow-hidden">
+                <div className="relative w-full h-[140px] sm:h-[200px] md:h-[200px] overflow-hidden">
                   <Image
                     src={escort?.image}
                     alt={escort?.name || "Escort"}
@@ -121,7 +127,7 @@ export default function EscortWebsite() {
                     />
                   </div>
 
-                  <div className="flex justify-between items-center mt-1 flex-col sm:flex-row gap-1">
+                  <div className="flex justify-between sm:items-center mt-1 flex-col sm:flex-row gap-1">
                     <p className="text-gray-400 text-[10px] sm:text-xs truncate">
                       {escort?.location}
                     </p>
@@ -136,7 +142,7 @@ export default function EscortWebsite() {
             ))}
           </div>
           {/* Pagination */}
-          <div className="flex justify-center items-center gap-2  flex-wrap absolute bottom-0 right-1/3 ">
+          <div className="flex justify-center items-center gap-2  flex-wrap sm:absolute mt-6 sm:m-0 bottom-0 sm:right-1/3 ">
             <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-3 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
               ←
             </button>
