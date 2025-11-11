@@ -72,6 +72,7 @@ export default function IndependentLogin({ t, onClose }) {
       <button
         onClick={() => {
           router.push("/escortAdminPanel");
+
           onClose();
         }}
         type="submit"
