@@ -68,7 +68,7 @@ export default function EscortWebsite() {
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row px-4 sm:px-6 lg:px-8  gap-6 lg:gap-8 items-start relative">
         {/* Sidebar Filters */}
-        <aside className="w-full sm:w-[260px] flex-shrink-0">
+        <aside className="w-full sm:w-[300px] flex-shrink-0">
           <RefineSearchSidebar />
         </aside>
 
@@ -96,7 +96,7 @@ export default function EscortWebsite() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-5 gap-3 sm:gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-3">
             {escorts.map((escort) => (
               <div
                 onClick={() => router.push("/escortProfile")}
@@ -105,7 +105,7 @@ export default function EscortWebsite() {
                  transition-all duration-500 hover:shadow-[0_0_12px_rgba(212,165,116,0.3)]"
               >
                 {/* Image Section */}
-                <div className="relative w-full h-[140px] sm:h-[200px] md:h-[200px] overflow-hidden">
+                <div className="relative w-full h-[140px] sm:h-[250px]  overflow-hidden">
                   <Image
                     src={escort?.image}
                     alt={escort?.name || "Escort"}

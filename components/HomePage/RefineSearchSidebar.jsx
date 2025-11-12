@@ -28,7 +28,7 @@ export default function RefineSearchSidebar() {
       {/* Sidebar */}
       <aside
         className={`fixed lg:static top-0 left-0 h-full lg:h-auto 
-          w-[85%] sm:w-[300px] lg:w-[260px] 
+          w-[100%] sm:w-[300px]
           text-[#e4e4e4] 
           px-5 py-6 border-r border-zinc-700 
           font-[500] tracking-wide 
