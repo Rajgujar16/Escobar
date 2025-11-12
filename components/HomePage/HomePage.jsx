@@ -4,14 +4,15 @@ import RefineSearchSidebar from "@/components/HomePage/RefineSearchSidebar";
 import { useRouter } from "next/navigation";
 import MediaSections from "@/components/HomePage/MediaSections";
 import { FaChevronDown } from "react-icons/fa";
-import { CheckCircle, Star } from "lucide-react";
+import { CheckCircle, Coins, Star } from "lucide-react";
 import Image from "next/image";
+import { IoDiamond } from "react-icons/io5";
 
 export default function EscortWebsite() {
   const [selectedFilters, setSelectedFilters] = useState({});
   const router = useRouter();
 
-  const escorts = Array(12)
+  const escorts = Array(15)
     .fill(null)
     .map((_, i) => ({
       id: i + 1,
@@ -22,6 +23,7 @@ export default function EscortWebsite() {
       reviews: 12,
       tag: "Pornstar",
       location: "France, Paris",
+      plan: i < 6 ? "Gold" : "Silver",
     }));
 
   const webcamShows = Array(20)
@@ -94,7 +96,7 @@ export default function EscortWebsite() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-5 gap-3 sm:gap-3">
             {escorts.map((escort) => (
               <div
                 onClick={() => router.push("/escortProfile")}
@@ -112,6 +114,15 @@ export default function EscortWebsite() {
                   />
 
                   {/* Optional dark overlay on hover */}
+                  <div
+                    className={`absolute top-1 -left-8 flex items-center justify-center gap-1
+                  bg-[#D4A574] rotate-[-35deg] w-24
+                  text-gray-950 text-[9px] font-semibold px-1.5 py-[2px]
+                  rounded-sm border border-white/10 shadow-md`}
+                  >
+                    <Coins className="w-3 h-3 text-black" />
+                    {escort?.plan}
+                  </div>
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500"></div>
                 </div>
 

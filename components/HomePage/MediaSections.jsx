@@ -94,7 +94,7 @@ export default function MediaSections({ webcamShows, episodes }) {
 
               {/* Smaller, Purple VIP Badge */}
               <div
-                className="absolute top-3 -left-5 flex items-center justify-center gap-1
+                className="absolute top-1 -left-8 flex items-center justify-center gap-1
 bg-[#682977] rotate-[-35deg] w-24
 text-white text-[9px] font-semibold px-1.5 py-[2px]
 rounded-sm border border-white/10 shadow-md"
