@@ -105,7 +105,7 @@ export default function EscortWebsite() {
                  transition-all duration-500 hover:shadow-[0_0_12px_rgba(212,165,116,0.3)]"
               >
                 {/* Image Section */}
-                <div className="relative w-full h-[140px] sm:h-[250px]  overflow-hidden">
+                <div className="relative w-full h-[180px] sm:h-[250px] lg:h-[300px]  overflow-hidden">
                   <Image
                     src={escort?.image}
                     alt={escort?.name || "Escort"}
