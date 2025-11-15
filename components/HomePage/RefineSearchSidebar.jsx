@@ -10,7 +10,7 @@ export default function RefineSearchSidebar() {
   return (
     <>
       {/* Mobile Toggle Header */}
-      <div className="lg:hidden flex justify-between items-center bg-[#0d0d0d] border-b border-[#1a1a1a] px-5 py-3">
+      <div className="lg:hidden flex justify-between items-center bg-[#0d0d0d] border-b border-[#1a1a1a] pr-5 py-3">
         <div className="flex items-center gap-2">
           <FiFilter className="text-[#c99b53] text-[18px]" />
           <h2 className="text-sm font-semibold text-[#c99b53]">

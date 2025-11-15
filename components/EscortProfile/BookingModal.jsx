@@ -21,7 +21,7 @@ export default function BookingModal({ isOpen, onClose }) {
       {/* Modal Container */}
       <div className="relative bg-[#0b0b0b] text-white rounded-2xl border border-[#d4a574] w-[90%] sm:w-[80%] md:w-[55%] lg:w-[400px] max-h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-[#d4a574]/40 scrollbar-track-transparent p-5 shadow-[0_0_25px_rgba(212,165,116,0.2)]">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#2c2c2c] pb-3 mb-4">
+        <div className="flex items-center justify-between border-b border-[#2c2c2c] pb-3 pt-4 mb-4 sticky -top-6 left-0 right-0 bg-[#0b0b0b] rounded-t-2xl px-5">
           <h2 className="flex items-center gap-2 text-lg font-medium text-[#ffbe85]">
             <CalendarDays size={18} /> Book a Live Session
           </h2>

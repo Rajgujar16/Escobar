@@ -22,9 +22,9 @@ import {
 } from "react-icons/fa";
 import { BsTelephoneOutboundFill, BsChatText } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
-import BookingModal from "@/components/EscortProfile/BookingModal";
 import { HiUsers } from "react-icons/hi";
 import { useModal } from "@/app/ModalContext";
+import CustomeReview from "./CustomeReview";
 
 export default function EscortProfileRightSection() {
   const { openBooking } = useModal();
@@ -62,8 +62,8 @@ export default function EscortProfileRightSection() {
     {
       name: "Call",
       icon: BsTelephoneOutboundFill,
-      color: "text-amber-500",
-      bgColor: "hover:bg-amber-500/10",
+      color: "text-[#D8AB85]",
+      bgColor: "hover:bg-[#D8AB85]/10",
     },
   ];
 
@@ -76,7 +76,7 @@ export default function EscortProfileRightSection() {
     <>
       <div className="sticky top-24 space-y-6">
         {/* Profile Card */}
-        <div className="bg-[#0f0f0f] rounded-2xl p-6 border border-[#1f1f1f] w-full relative">
+        <div className="bg-[#000000] rounded-2xl p-6 border border-[#1f1f1f] w-full relative sm:block hidden">
           <div className="flex items-center gap-3 mb-4">
             <img
               src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop"
@@ -199,14 +199,14 @@ export default function EscortProfileRightSection() {
         </div>
 
         <div className="bg-[#D8AB851A] rounded-xl p-6 border border-zinc-800 flex items-center justify-center gap-2">
-          <Sparkle size={16} className="text-amber-500" />{" "}
-          <span className="text-amber-500 text-sm">
+          <Sparkle size={16} className="text-[#D8AB85]" />{" "}
+          <span className="text-[#D8AB85] text-sm">
             Premium Member - Book with confidence
           </span>
         </div>
 
         {/* Details Card */}
-        <div className="bg-[#111] rounded-xl p-6 border border-zinc-800">
+        <div className="bg-[#000000] rounded-xl p-6 border border-zinc-800">
           <h3 className="font-bold text-lg mb-4">Details</h3>
           <div className="space-y-3 text-sm">
             <div className="flex items-center justify-between">
@@ -255,7 +255,7 @@ export default function EscortProfileRightSection() {
               <span className="text-gray-400 flex items-center gap-2">
                 <DollarSign size={16} /> Price Range
               </span>
-              <span className="font-semibold text-amber-500">$ (EU 36)</span>
+              <span className="font-semibold text-[#D8AB85]">$ (EU 36)</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-gray-400 flex items-center gap-2">
@@ -267,7 +267,7 @@ export default function EscortProfileRightSection() {
         </div>
 
         {/* Availability Card */}
-        <div className="bg-[#111] rounded-xl p-6 border border-zinc-800">
+        <div className="bg-[#000000] rounded-xl p-6 border border-zinc-800">
           <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
             <Calendar size={20} /> Availability
           </h3>
@@ -288,7 +288,7 @@ export default function EscortProfileRightSection() {
         </div>
 
         {/* Travel Locations */}
-        <div className="bg-[#111] rounded-xl p-6 border border-zinc-800">
+        <div className="bg-[#000000] rounded-xl p-6 border border-zinc-800">
           <h3 className="font-bold text-lg mb-4">Travel Locations</h3>
           <div className="flex flex-wrap gap-2">
             <span className="px-3 py-1.5 bg-zinc-800 rounded-full text-xs flex items-center gap-1">
@@ -301,6 +301,10 @@ export default function EscortProfileRightSection() {
               <MapPin size={12} /> Dubai
             </span>
           </div>
+        </div>
+
+        <div className="sm:hidden">
+          <CustomeReview />
         </div>
       </div>
     </>

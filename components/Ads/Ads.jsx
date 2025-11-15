@@ -4,7 +4,7 @@ import { FaAd, FaArrowRight } from "react-icons/fa";
 
 export default function AdvertiseBanner() {
   return (
-    <div className="bg-[#2B0B0B] w-full flex flex-col sm:flex-row justify-between items-start sm:items-center px-5 sm:px-8 py-4 sm:py-6 mt-4 sm:mt-6 rounded-lg gap-4 sm:gap-0">
+    <div className="bg-[#2B0B0B] w-full flex flex-col sm:flex-row justify-between items-start sm:items-center px-5 sm:px-14 py-4 sm:py-6 mt-4 sm:mt-6 rounded-lg gap-4 sm:gap-0">
       {/* Left Section */}
       <div className="flex items-start sm:items-center gap-3">
         <div className="bg-[#3b1a1a] text-[#d4a574] p-2 rounded-md flex items-center justify-center shrink-0">

@@ -1,10 +1,26 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { User, LogOut, FileText, Star, Video, Megaphone } from "lucide-react";
+import {
+  User,
+  LogOut,
+  FileText,
+  Star,
+  Video,
+  Megaphone,
+  Globe,
+  ChevronDown,
+} from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function ProfileDropdown() {
+export default function ProfileDropdown({
+  setIsLangOpen,
+  isLangOpen,
+  onLocaleChange,
+  currentLocale,
+  languages,
+  currentLang,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const router = useRouter();
@@ -103,6 +119,40 @@ export default function ProfileDropdown() {
               <Megaphone className="h-4 w-4 text-[#ff9a3c]" />
               Classified Ads
             </button>
+            {/* Language Dropdown */}
+            <div className="w-full">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center space-x-4 text-gray-300 hover:text-white text-sm px-3 py-1.5 rounded-md hover:bg-white/5 w-full"
+              >
+                <span className="flex items-center gap-2">
+                  <Globe className="h-4 w-4 text-[#ff9a3c]" />
+                  <span>{currentLang}</span>
+                </span>
+                <ChevronDown className="h-4 w-4" />
+              </button>
+
+              {isLangOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-[#1a1a1a] border border-white/10 rounded-lg shadow-lg overflow-hidden">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        onLocaleChange(lang.code);
+                        setIsLangOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                        currentLocale === lang.code
+                          ? "bg-[#ff9a3c]/20 text-[#ff9a3c]"
+                          : "text-gray-300 hover:bg-white/5"
+                      }`}
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Logout */}

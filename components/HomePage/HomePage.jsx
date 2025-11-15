@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import RefineSearchSidebar from "@/components/HomePage/RefineSearchSidebar";
 import { useRouter } from "next/navigation";
 import MediaSections from "@/components/HomePage/MediaSections";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaCrown } from "react-icons/fa";
 import { CheckCircle, Coins, Star } from "lucide-react";
 import Image from "next/image";
-import { IoDiamond } from "react-icons/io5";
+import goldBadge from "@/public/goldBadge.png";
 
 export default function EscortWebsite() {
   const [selectedFilters, setSelectedFilters] = useState({});
@@ -26,7 +26,7 @@ export default function EscortWebsite() {
       plan: i < 6 ? "Gold" : "Silver",
     }));
 
-  const webcamShows = Array(20)
+  const webcamShows = Array(8)
     .fill(null)
     .map((_, i) => ({
       id: i + 1,
@@ -52,7 +52,7 @@ export default function EscortWebsite() {
           alt="Hero"
           className="w-full h-full object-cover"
         />
-        <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 bg-[#8B0000] px-3 sm:px-4 py-2 rounded">
+        {/* <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 bg-[#8B0000] px-3 sm:px-4 py-2 rounded">
           <div className="text-[10px] text-white/80">Escort Services In</div>
           <div className="text-sm sm:text-base font-semibold text-white">
             Ahmedabad Escort Services
@@ -60,120 +60,147 @@ export default function EscortWebsite() {
         </div>
         <button className="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 bg-[#D4A574] text-black px-5 sm:px-7 py-2 rounded-full text-xs sm:text-sm font-semibold hover:bg-[#C49564] transition">
           Book Now
-        </button>
+        </button> */}
       </div>
+      <div className="px-0 sm:px-6">
+        <div className=" px-4 sm:px-8">
+          <MediaSections webcamShows={webcamShows} episodes={episodes} />
+        </div>
 
-      <MediaSections webcamShows={webcamShows} episodes={episodes} />
+        {/* Main Content */}
+        <div className="flex flex-col lg:flex-row px-4 sm:pr-6 lg:pr-8  lg:gap-8 items-start relative">
+          {/* Sidebar Filters */}
+          <aside className="w-full sm:w-[300px] flex-shrink-0">
+            <RefineSearchSidebar />
+          </aside>
 
-      {/* Main Content */}
-      <div className="flex flex-col lg:flex-row px-4 sm:px-6 lg:px-8  gap-6 lg:gap-8 items-start relative">
-        {/* Sidebar Filters */}
-        <aside className="w-full sm:w-[300px] flex-shrink-0">
-          <RefineSearchSidebar />
-        </aside>
-
-        {/* Escort Grid */}
-        <main className="flex-1 w-full py-2">
-          <div className="border border-[#D4A574] rounded-lg my-3 p-4 flex items-center justify-between gap-4 ">
-            <p className="text-[#D4A574] font-bold text-sm sm:text-base">
-              Active Filters
-            </p>
-            <div className="relative w-full sm:w-auto flex justify-end ">
-              <select
-                className="appearance-none  bg-gradient-to-r from-[#141414] to-[#1a1a1a] 
+          {/* Escort Grid */}
+          <main className="flex-1 w-full sm:py-2 py-1">
+            <div className="border border-[#D4A574] rounded-lg my-3 p-4 flex items-center justify-between gap-4 ">
+              <p className="text-[#D4A574] font-bold text-sm sm:text-base">
+                Active Filters
+              </p>
+              <div className="relative w-full sm:w-auto flex justify-end ">
+                <select
+                  className="appearance-none  bg-gradient-to-r from-[#141414] to-[#1a1a1a] 
         text-white border border-[#2a2a2a]/70 rounded-lg px-4 py-2.5 pr-8 
         text-xs sm:text-sm font-medium 
         focus:outline-none focus:border-[#D4A574] focus:ring-1 focus:ring-[#D4A574]/40
         transition duration-200 hover:border-[#D4A574]/60 "
-              >
-                <option className="text-zinc-900">Most Popular</option>
-                <option className="text-zinc-900">Newest</option>
-                <option className="text-zinc-900">Rating</option>
-              </select>
+                >
+                  <option className="text-zinc-900">Most Popular</option>
+                  <option className="text-zinc-900">Newest</option>
+                  <option className="text-zinc-900">Rating</option>
+                </select>
 
-              {/* React Icon as dropdown arrow */}
-              <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#D4A574] pointer-events-none text-xs sm:text-sm" />
+                {/* React Icon as dropdown arrow */}
+                <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#D4A574] pointer-events-none text-xs sm:text-sm" />
+              </div>
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-3">
-            {escorts.map((escort) => (
-              <div
-                onClick={() => router.push("/escortProfile")}
-                key={escort.id}
-                className="group bg-[#0a0a0a] rounded-lg overflow-hidden cursor-pointer border border-[#D4A574] 
-                 transition-all duration-500 hover:shadow-[0_0_12px_rgba(212,165,116,0.3)]"
-              >
-                {/* Image Section */}
-                <div className="relative w-full h-[180px] sm:h-[250px] lg:h-[300px]  overflow-hidden">
-                  <Image
-                    src={escort?.image}
-                    alt={escort?.name || "Escort"}
-                    fill
-                    className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                  />
-
-                  {/* Optional dark overlay on hover */}
+            <div className="relative max-h-[900px] overflow-y-auto">
+              <div className="grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-3">
+                {escorts.map((escort) => (
                   <div
-                    className={`absolute top-1 -left-8 flex items-center justify-center gap-1
-                  bg-[#D4A574] rotate-[-35deg] w-24
-                  text-gray-950 text-[9px] font-semibold px-1.5 py-[2px]
-                  rounded-sm border border-white/10 shadow-md`}
+                    onClick={() => router.push("/escortProfile")}
+                    key={escort.id}
+                    className="group bg-[#0a0a0a] rounded-lg overflow-hidden cursor-pointer border border-[#D4A574] 
+                 transition-all duration-500 hover:shadow-[0_0_12px_rgba(212,165,116,0.3)]"
                   >
-                    <Coins className="w-3 h-3 text-black" />
-                    {escort?.plan}
-                  </div>
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500"></div>
-                </div>
+                    {/* Image Section */}
+                    <div className="relative w-full h-[180px] sm:h-[250px] lg:h-[300px]  overflow-hidden">
+                      <Image
+                        src={escort?.image}
+                        alt={escort?.name || "Escort"}
+                        fill
+                        className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                      />
 
-                {/* Info Section */}
-                <div className="p-2 sm:p-3 border-t border-[#2a2a2a]">
-                  <div className="flex items-center gap-1">
-                    <h3 className="text-white font-semibold text-xs sm:text-sm truncate">
-                      {escort?.name}
-                    </h3>
-                    <CheckCircle
-                      size={12}
-                      className="text-green-500 flex-shrink-0 sm:w-[14px] sm:h-[14px]"
-                    />
-                  </div>
+                      {/* Optional dark overlay on hover */}
+                      <div
+                        className={`absolute top-1 -left-8 flex items-center justify-center gap-1
+                      ${
+                        escort?.plan === "Silver"
+                          ? "bg-gray-500"
+                          : "bg-[#D4A574]"
+                      }
+                  rotate-[-35deg] w-24
+                  text-${
+                    escort?.plan === "Silver" ? "white" : "black/600"
+                  } text-[9px] font-semibold px-1.5 py-[2px]
+                  rounded-sm border border-white/10 shadow-md uppercase`}
+                      >
+                        {escort?.plan === "Silver" ? (
+                          // <RiStarFill
+                          //   className={`w-3 h-3 ${
+                          //     escort?.plan === "Gold" ? "text-black" : "text-white"
+                          //   }`}
+                          // />
+                          ""
+                        ) : (
+                          <FaCrown
+                            className={`w-3 h-3 ${
+                              escort?.plan === "Gold"
+                                ? "text-black"
+                                : "text-white"
+                            }`}
+                          />
+                        )}
 
-                  <div className="flex justify-between sm:items-center mt-1 flex-col sm:flex-row gap-1">
-                    <p className="text-gray-400 text-[10px] sm:text-xs truncate">
-                      {escort?.location}
-                    </p>
+                        {escort?.plan}
+                      </div>
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500"></div>
+                    </div>
 
-                    <div className="inline-flex items-center gap-1 border border-[#d4a574] text-[#d4a574] text-[10px] sm:text-xs px-1.5 py-[1px] rounded-md">
-                      <Star size={10} className="fill-[#d4a574]" />
-                      <span className="truncate">{escort?.tag}</span>
+                    {/* Info Section */}
+                    <div className="p-2 sm:p-3 border-t border-[#2a2a2a]">
+                      <div className="flex items-center gap-1">
+                        <h3 className="text-white font-semibold text-xs sm:text-sm truncate">
+                          {escort?.name}
+                        </h3>
+                        <CheckCircle
+                          size={12}
+                          className="text-green-500 flex-shrink-0 sm:w-[14px] sm:h-[14px]"
+                        />
+                      </div>
+
+                      <div className="flex justify-between sm:items-center mt-1 flex-col sm:flex-row gap-1">
+                        <p className="text-gray-400 text-[10px] sm:text-xs truncate">
+                          {escort?.location}
+                        </p>
+
+                        <div className="inline-flex items-center gap-1 border border-[#d4a574] text-[#d4a574] text-[10px] sm:text-xs px-1.5 py-[1px] rounded-md">
+                          <Star size={10} className="fill-[#d4a574]" />
+                          <span className="truncate">{escort?.tag}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-          {/* Pagination */}
-          <div className="flex justify-center items-center gap-2  flex-wrap sm:absolute mt-6 sm:m-0 bottom-0 sm:right-1/3 ">
-            <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-3 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
-              ←
-            </button>
-            <button className="bg-[#D4A574] text-black px-4 py-2 rounded font-semibold text-xs sm:text-sm hover:bg-[#C49564] transition">
-              1
-            </button>
-            <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-4 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
-              2
-            </button>
-            <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-4 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
-              3
-            </button>
-            <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-4 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
-              4
-            </button>
-            <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-3 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
-              →
-            </button>
-          </div>
-        </main>
+            </div>
+            {/* Pagination */}
+            <div className="flex justify-center items-center gap-2 flex-wrap mt-6 sm:mt-8">
+              <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-3 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
+                ←
+              </button>
+              <button className="bg-[#D4A574] text-black px-4 py-2 rounded font-semibold text-xs sm:text-sm hover:bg-[#C49564] transition">
+                1
+              </button>
+              <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-4 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
+                2
+              </button>
+              <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-4 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
+                3
+              </button>
+              <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-4 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
+                4
+              </button>
+              <button className="bg-[#0a0a0a] text-white border border-[#2a2a2a] px-3 py-2 rounded text-xs sm:text-sm hover:bg-[#1a1a1a] transition">
+                →
+              </button>
+            </div>
+          </main>
+        </div>
       </div>
     </div>
   );

@@ -17,6 +17,10 @@ export function ModalProvider({ children }) {
   const openGift = () => setIsGiftOpen(true);
   const closeGift = () => setIsGiftOpen(false);
 
+  const [isLiveOpen, setIsLiveOpen] = useState(false);
+  const openLive = () => setIsLiveOpen(true);
+  const closeLive = () => setIsLiveOpen(false);
+
   return (
     <ModalContext.Provider
       value={{
@@ -29,6 +33,9 @@ export function ModalProvider({ children }) {
         isGiftOpen,
         openGift,
         closeGift,
+        isLiveOpen,
+        openLive,
+        closeLive,
       }}
     >
       {children}

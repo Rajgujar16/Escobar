@@ -85,39 +85,6 @@ export default function Navbar({
 
         {/* Desktop Right Side */}
         <div className="hidden md:flex items-center space-x-4">
-          {/* Language Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setIsLangOpen(!isLangOpen)}
-              className="flex items-center space-x-1 text-gray-300 hover:text-white text-sm px-3 py-1.5 rounded-md hover:bg-white/5"
-            >
-              <Globe className="h-4 w-4" />
-              <span>{currentLang}</span>
-              <ChevronDown className="h-4 w-4" />
-            </button>
-
-            {isLangOpen && (
-              <div className="absolute right-0 mt-2 w-40 bg-[#1a1a1a] border border-white/10 rounded-lg shadow-lg overflow-hidden">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => {
-                      onLocaleChange(lang.code);
-                      setIsLangOpen(false);
-                    }}
-                    className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                      currentLocale === lang.code
-                        ? "bg-[#ff9a3c]/20 text-[#ff9a3c]"
-                        : "text-gray-300 hover:bg-white/5"
-                    }`}
-                  >
-                    {lang.name}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
           {/* Search */}
           <div className="relative">
             <input
@@ -137,7 +104,15 @@ export default function Navbar({
             //   <User className="h-5 w-5" />
             // </button>
 
-            <ProfileDropdown />
+            <ProfileDropdown
+              currentLang={currentLang}
+              setIsLangOpen={setIsLangOpen}
+              isLangOpen={isLangOpen}
+              currentLocale={currentLocale}
+              onLocaleChange={onLocaleChange}
+              t={t}
+              languages={languages}
+            />
           ) : (
             <button
               onClick={onLoginClick}

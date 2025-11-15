@@ -42,8 +42,8 @@ export default function OurService() {
   ];
 
   return (
-    <div className="  text-white sm:py-12  px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="  text-white sm:py-12  px-4 ">
+      <div className="max-w-7xl mx-auto sm:px-4">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 sm:mb-6">

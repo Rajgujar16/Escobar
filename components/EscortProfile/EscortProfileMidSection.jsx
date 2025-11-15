@@ -1,6 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { Star, CheckCircle, CircleCheck } from "lucide-react";
+import {
+  Star,
+  CheckCircle,
+  CircleCheck,
+  ChevronUp,
+  ChevronDown,
+} from "lucide-react";
 import {
   FaEye,
   FaFlag,
@@ -9,11 +15,55 @@ import {
   FaGem,
   FaCrown,
   FaCheckCircle,
+  FaTelegram,
+  FaWhatsapp,
+  FaHeart,
+  FaVideo,
 } from "react-icons/fa";
 import { MdOutlineVerified } from "react-icons/md";
+import { BsChatText, BsTelephoneOutboundFill } from "react-icons/bs";
+import { useModal } from "@/app/ModalContext";
+import { IoClose } from "react-icons/io5";
+import CustomeReview from "@/components/EscortProfile/CustomeReview";
 
 export default function EscortProfileMidSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+  const { openBooking } = useModal();
+
+  const [showContactOptions, setShowContactOptions] = useState(false);
+
+  const contactOptions = [
+    {
+      name: "WhatsApp",
+      icon: FaWhatsapp,
+      color: "text-green-500",
+      bgColor: "hover:bg-green-500/10",
+    },
+    {
+      name: "Telegram",
+      icon: FaTelegram,
+      color: "text-blue-400",
+      bgColor: "hover:bg-blue-400/10",
+    },
+    {
+      name: "SMS",
+      icon: BsChatText,
+      color: "text-gray-400",
+      bgColor: "hover:bg-gray-400/10",
+    },
+    {
+      name: "Call",
+      icon: BsTelephoneOutboundFill,
+      color: "text-[#D8AB85]",
+      bgColor: "hover:bg-[#D8AB85]/10",
+    },
+  ];
+
+  const handleContactOptionClick = (option) => {
+    console.log(`Selected contact option: ${option}`);
+    setShowContactOptions(false);
+  };
 
   const images = [
     "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=600&fit=crop",
@@ -48,30 +98,6 @@ export default function EscortProfileMidSection() {
     { duration: "2 Hours", incall: "$1,000", outcall: "$1,200" },
     { duration: "4 Hours", incall: "$1,800", outcall: "$2,000" },
     { duration: "Overnight", incall: "$3,500", outcall: "$3,800" },
-  ];
-
-  const reviews = [
-    {
-      name: "Michael R.",
-      rating: 5,
-      time: "2 months ago",
-      text: "Absolutely incredible experience. Professional, elegant, and exceeded all expectations. Highly recommend!",
-      verified: true,
-    },
-    {
-      name: "James K.",
-      rating: 5,
-      time: "3 months ago",
-      text: "A true professional. Amazing conversation and unforgettable evening.",
-      verified: true,
-    },
-    {
-      name: "David M.",
-      rating: 5,
-      time: "4 months ago",
-      text: "Best experience I've had. Gorgeous and attentive. Will book again!",
-      verified: true,
-    },
   ];
 
   const nextImage = () =>
@@ -122,7 +148,7 @@ export default function EscortProfileMidSection() {
               onClick={() => setCurrentImageIndex(idx)}
               className={`min-w-[80px] h-24 rounded-lg overflow-hidden border-2 transition-all ${
                 currentImageIndex === idx
-                  ? "border-amber-500"
+                  ? "border-[#D8AB85]"
                   : "border-transparent opacity-70 hover:opacity-100"
               }`}
             >
@@ -135,14 +161,14 @@ export default function EscortProfileMidSection() {
       {/* Profile Info */}
       <div className="bg-[#111] rounded-xl mt-6 md:border lg:border border-zinc-800 p-2 md:p:5 lg:p-5">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+        <div className="sm:flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4 hidden">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold mb-1">
               Sophia Laurent
             </h1>
             <div className="flex flex-wrap gap-2 text-sm text-gray-400">
               <span className="flex items-center gap-1">
-                <Star size={16} className="fill-amber-500 text-amber-500" /> 5.0
+                <Star size={16} className="fill-[#D8AB85] text-[#D8AB85]" /> 5.0
                 (106)
               </span>
               <span className="flex items-center gap-1">
@@ -152,7 +178,7 @@ export default function EscortProfileMidSection() {
                 <FaFlag size={14} /> English, French
               </span>
               <span className="flex items-center gap-1">
-                <FaCrown size={14} className="text-amber-500" /> VIP Elite
+                <FaCrown size={14} className="text-[#D8AB85]" /> VIP Elite
               </span>
             </div>
           </div>
@@ -162,14 +188,103 @@ export default function EscortProfileMidSection() {
               <Star
                 key={star}
                 size={20}
-                className="fill-amber-500 text-amber-500"
+                className="fill-[#D8AB85] text-[#D8AB85]"
               />
             ))}
           </div>
         </div>
 
+        {/* Mobile responsive */}
+
+        <div className="  w-full relative sm:hidden block mb-6">
+          <div className="flex items-center gap-3 mb-4">
+            <img
+              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop"
+              alt="Profile"
+              className="w-12 h-12 rounded-full object-cover"
+            />
+            <div className="flex-1">
+              <h3 className="text-white font-semibold text-sm">
+                Sophia Laurent
+              </h3>
+              <p className="text-green-500 text-xs flex items-center gap-1">
+                <span className="w-2 h-2 bg-green-500 rounded-full"></span>{" "}
+                Available Now
+              </p>
+            </div>
+            <button className="text-gray-400 hover:text-white bg-zinc-600 p-2 rounded-full">
+              <FaHeart />
+            </button>
+          </div>
+
+          <div className="flex gap-1 justify-end mb-3">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <Star
+                key={star}
+                size={16}
+                className="fill-[#D8AB85] text-[#D8AB85]"
+              />
+            ))}
+          </div>
+
+          {/* Buttons */}
+          <button
+            className="w-full bg-gradient-to-r from-[#d4a574] to-[#e3b67a] text-black font-semibold py-3 rounded-lg mb-3 text-sm hover:from-[#e3b67a] hover:to-[#d4a574] transition-all flex items-center justify-center gap-2"
+            onClick={openBooking}
+          >
+            <FaVideo /> Book a Live Session
+          </button>
+
+          <div className="relative">
+            <button
+              className="w-full border border-[#d4a574]/50 text-white py-3 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-[#1a1a1a] transition-all"
+              onClick={() => setShowContactOptions(!showContactOptions)}
+            >
+              <BsTelephoneOutboundFill /> Contact
+            </button>
+
+            {/* Floating Contact Options */}
+            {showContactOptions && (
+              <div className="absolute bottom-full left-0 right-0 mb-2 bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-3 shadow-2xl z-10 animate-in fade-in slide-in-from-bottom-2 duration-200">
+                {/* Close Button */}
+                <button
+                  onClick={() => setShowContactOptions(false)}
+                  className="absolute top-2 right-2 text-gray-400 hover:text-white transition-colors"
+                >
+                  <IoClose size={18} />
+                </button>
+
+                <h4 className="text-white font-medium text-sm mb-3 text-center">
+                  Choose Contact Method
+                </h4>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {contactOptions.map((option, index) => {
+                    const IconComponent = option.icon;
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => handleContactOptionClick(option.name)}
+                        className={`flex flex-col items-center justify-center p-3 rounded-lg border border-[#2a2a2a] ${option.bgColor} transition-all duration-200 group`}
+                      >
+                        <IconComponent
+                          size={20}
+                          className={`${option.color} mb-1 group-hover:scale-110 transition-transform`}
+                        />
+                        <span className="text-xs text-gray-300 group-hover:text-white">
+                          {option.name}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* About */}
-        <div className="bg-[#111] rounded-xl p-5 mb-6 border border-zinc-800">
+        <div className="bg-[#000000] rounded-xl p-5 mb-6 border border-zinc-800">
           <h2 className="text-lg font-bold mb-3">About Me</h2>
           <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
             I'm Sophia, an elite companion offering the ultimate luxury
@@ -177,17 +292,22 @@ export default function EscortProfileMidSection() {
             meaningful connections, I bring sophistication and warmth to every
             encounter.
           </p>
-          <button className="text-[#d4a574] hover:text-amber-500 mt-3 flex items-center gap-1 text-sm">
+          <button className="text-[#d4a574] hover:text-[#D8AB85] mt-3 flex items-center gap-1 text-sm">
             Read More →
           </button>
         </div>
 
         {/* Services Offered */}
-        <div className="bg-[#111] rounded-xl p-5 mb-6 border border-zinc-800">
+        <div className="bg-[#000000] rounded-xl p-5 mb-6 border border-zinc-800">
           <h2 className="text-lg font-semibold mb-4 text-white">
             Services Offered
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3  sm:max-h-full overflow-y-auto max-h-[200px]">
+
+          <div
+            className={`grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 overflow-hidden transition-all duration-300 ${
+              expanded ? "max-h-full" : "max-h-[180px]"
+            }`}
+          >
             {services.map((service) => (
               <div
                 key={service.id}
@@ -200,10 +320,27 @@ export default function EscortProfileMidSection() {
               </div>
             ))}
           </div>
+
+          {services.length > 6 && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="mt-3 text-[#d4a574] flex items-center gap-1 text-sm font-medium hover:opacity-80 transition"
+            >
+              {expanded ? (
+                <>
+                  View Less <ChevronUp size={18} />
+                </>
+              ) : (
+                <>
+                  View More <ChevronDown size={18} />
+                </>
+              )}
+            </button>
+          )}
         </div>
 
         {/* Pricing */}
-        <div className="bg-[#111] rounded-xl p-5 mb-6 border border-zinc-800 overflow-x-auto">
+        <div className="bg-[#000000] rounded-xl p-5 mb-6 border border-zinc-800 overflow-x-auto">
           <h2 className="text-xl font-bold mb-4">Pricing & Packages</h2>
           <div className="min-w-[360px] grid grid-cols-3 text-sm sm:text-base">
             <div className="font-semibold">Time</div>
@@ -214,10 +351,10 @@ export default function EscortProfileMidSection() {
                 <div className="py-3 border-t border-zinc-800">
                   {price.duration}
                 </div>
-                <div className="py-3 border-t border-zinc-800 text-amber-500 font-semibold">
+                <div className="py-3 border-t border-zinc-800 text-[#D8AB85] font-semibold">
                   {price.incall}
                 </div>
-                <div className="py-3 border-t border-zinc-800 text-amber-500 font-semibold">
+                <div className="py-3 border-t border-zinc-800 text-[#D8AB85] font-semibold">
                   {price.outcall}
                 </div>
               </React.Fragment>
@@ -225,105 +362,8 @@ export default function EscortProfileMidSection() {
           </div>
         </div>
 
-        {/* Reviews Section */}
-        <div className="bg-[#111] rounded-xl p-5 sm:p-6 border border-zinc-800">
-          {/* Header */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-3">
-            <div className="flex items-center gap-2">
-              <h2 className="text-lg sm:text-xl font-bold text-white">
-                Customer Reviews
-              </h2>
-              <span className="bg-zinc-800 px-3 py-1 rounded-full text-xs sm:text-sm">
-                3
-              </span>
-            </div>
-            <button className="text-amber-500 hover:text-amber-400 flex items-center gap-2 text-xs sm:text-sm">
-              <FaCheckCircle size={14} /> Write a Review
-            </button>
-          </div>
-
-          {/* Rating Summary */}
-          <div className="grid grid-cols-3 text-center mb-8 text-xs sm:text-sm md:text-base">
-            <div>
-              <div className="text-2xl sm:text-3xl font-bold mb-1">5.0</div>
-              <div className="flex justify-center gap-1 mb-1">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star
-                    key={star}
-                    size={12}
-                    className="fill-amber-500 text-amber-500 sm:size-[16px]"
-                  />
-                ))}
-              </div>
-              <p className="text-gray-400 text-[10px] sm:text-xs">
-                Average Rating
-              </p>
-            </div>
-
-            <div className="border-x border-zinc-800">
-              <div className="text-2xl sm:text-3xl font-bold mb-1">3</div>
-              <p className="text-gray-400 text-[10px] sm:text-xs">
-                Total Reviews
-              </p>
-            </div>
-
-            <div>
-              <div className="text-2xl sm:text-3xl font-bold mb-1">100%</div>
-              <p className="text-gray-400 text-[10px] sm:text-xs">Recommend</p>
-            </div>
-          </div>
-
-          {/* Review List */}
-          <div className="space-y-6">
-            {reviews.map((review, idx) => (
-              <div key={idx} className="border-t border-zinc-800 pt-5 sm:pt-6">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  {/* Avatar */}
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 bg-zinc-800 rounded-full flex items-center justify-center text-sm sm:text-base">
-                    <FaUser />
-                  </div>
-
-                  {/* Review Content */}
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <div>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="font-semibold text-sm sm:text-base">
-                            {review.name}
-                          </span>
-                          {review.verified && (
-                            <CheckCircle size={13} className="text-green-500" />
-                          )}
-                        </div>
-                        <p className="text-[11px] sm:text-xs text-gray-400 mt-[2px]">
-                          {review.time}
-                        </p>
-                      </div>
-
-                      <div className="flex gap-1 mt-2 sm:mt-0">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <Star
-                            key={star}
-                            size={12}
-                            className="fill-amber-500 text-amber-500 sm:size-[14px]"
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
-                      {review.text}
-                    </p>
-
-                    <div className="flex flex-wrap gap-3 mt-3 text-[11px] sm:text-xs text-gray-500">
-                      <button className="hover:text-amber-500">Helpful</button>
-                      <button className="hover:text-amber-500">Report</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="sm:block hidden">
+          <CustomeReview />
         </div>
       </div>
     </div>

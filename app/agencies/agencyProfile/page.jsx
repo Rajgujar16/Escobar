@@ -99,7 +99,7 @@ export default function AgencyProfile() {
 
       {/* Profile Section - Overlapping hero */}
       <div className="relative -mt-32 md:-mt-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-6  ">
+        <div className="max-w-7xl mx-auto px-4   ">
           {/* Profile Card */}
           <div className=" rounded-lg mb-6">
             <div className="flex items-start gap-4">

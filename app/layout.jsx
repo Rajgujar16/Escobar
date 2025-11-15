@@ -16,6 +16,7 @@ import en from "@/public/locales/en/common.json";
 import fr from "@/public/locales/fr/common.json";
 import pt from "@/public/locales/pt/common.json";
 import es from "@/public/locales/es/common.json";
+import LiveStreamModal from "../components/LiveStream/LiveStreamModal";
 
 const translations = { en, fr, pt, es };
 const inter = Inter({ subsets: ["latin"] });
@@ -29,6 +30,8 @@ function LayoutContent({ children, currentLocale, setCurrentLocale, t }) {
     openLogin,
     isGiftOpen,
     closeGift,
+    isLiveOpen,
+    closeLive,
   } = useModal();
 
   return (
@@ -43,6 +46,7 @@ function LayoutContent({ children, currentLocale, setCurrentLocale, t }) {
       <LoginModal isOpen={isLoginOpen} onClose={closeLogin} t={t} />
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
       <GiftPopup isOpen={isGiftOpen} onClose={closeGift} />
+      <LiveStreamModal isOpen={isLiveOpen} onClose={closeLive} />
 
       {children}
       <Ads />

@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useModal } from "../ModalContext";
 
 export default function UserDashboard() {
   const router = useRouter();
+  const { openLive } = useModal();
+
   const bookings = [
     {
       id: 1,
@@ -53,9 +56,9 @@ export default function UserDashboard() {
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white px-4 md:px-10 py-10 flex flex-col items-center">
       {/* Profile Section */}
-      <div className="w-full max-w-4xl flex flex-col md:flex-row items-center justify-between mb-8">
+      <div className="w-full max-w-4xl flex  items-center justify-between mb-8">
         <div className="flex items-center gap-3">
-          <div className="w-16 h-16 rounded-full overflow-hidden">
+          <div className="sm:w-16 sm:h-16 w-14 h-14 rounded-full overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&h=200&fit=crop"
               alt="User"
@@ -64,16 +67,16 @@ export default function UserDashboard() {
               className="object-cover w-full h-full"
             />
           </div>
-          <h2 className="text-lg font-medium">Alexbroski720</h2>
+          <h2 className="sm:text-lg text-xs font-medium">Alexbroski720</h2>
         </div>
 
-        <button className="mt-4 md:mt-0 border border-[#d7a36a]/50 text-[#d7a36a] text-sm px-6 py-1.5 rounded-full hover:bg-[#d7a36a] hover:text-black transition-all">
+        <button className=" border border-[#d7a36a]/50 text-[#d7a36a] text-sm sm:px-6 sm:py-1.5 px-3 py-1 rounded-full hover:bg-[#d7a36a] hover:text-black transition-all">
           Logout
         </button>
       </div>
 
       {/* Current Credit */}
-      <div className="w-full max-w-4xl border border-[#1f1f1f] rounded-lg p-4 flex flex-col md:flex-row items-center justify-between mb-10 bg-black/30">
+      <div className="w-full max-w-4xl border border-[#1f1f1f] rounded-lg p-4 flex items-center justify-between sm:mb-10 mb-6 bg-black/30">
         <div>
           <p className="text-sm text-neutral-400 mb-1">
             Current Credit: <span className="text-white">2000</span>
@@ -83,7 +86,7 @@ export default function UserDashboard() {
           </p>
         </div>
         <button
-          className="mt-4 md:mt-0 bg-[#d7a36a] text-black text-xs sm:text-sm px-6 py-2 rounded-md hover:bg-[#e0b26d] transition-all"
+          className=" bg-[#d7a36a] text-black text-xs sm:text-sm px-6 py-2 rounded-md hover:bg-[#e0b26d] transition-all"
           onClick={() => router.push("/userProfile/buyCredits")}
         >
           Buy Credit
@@ -91,7 +94,7 @@ export default function UserDashboard() {
       </div>
 
       {/* My Booking */}
-      <div className="w-full max-w-4xl mb-10">
+      <div className="w-full max-w-4xl sm:mb-10">
         <h3 className="text-[#d7a36a] font-medium mb-4">My Booking</h3>
 
         <div className="space-y-3">
@@ -132,7 +135,7 @@ export default function UserDashboard() {
                     ? "bg-neutral-800 text-gray-400"
                     : "bg-[#d7a36a] text-black hover:bg-[#e0b26d]"
                 }`}
-                onClick={() => router.push("/liveStreaming")}
+                onClick={openLive}
               >
                 Join
               </button>
@@ -142,7 +145,7 @@ export default function UserDashboard() {
       </div>
 
       {/* Transaction History */}
-      <div className="w-full flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 py-12 text-white mt-10">
+      <div className="w-full flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 sm:py-12 pb-0 text-white sm:mt-10 mt-8 ">
         <h2 className="text-2xl sm:text-3xl font-semibold mb-8 text-center">
           Transaction History
         </h2>

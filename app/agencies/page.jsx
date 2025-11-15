@@ -49,66 +49,66 @@ export default function Agency() {
   }, [visible, loading, agencies.length]);
 
   return (
-    <div className="min-h-screen  text-white px-4 sm:px-6 md:px-10 py-8 space-y-6">
-      {/* Count */}
-      <div className="flex justify-center sm:justify-start">
+    <div className="min-h-screen  text-white px-4 sm:px-14 py-8 space-y-6">
+      <div className="flex items-center justify-between mb-4 flex-col sm:flex-row gap-4">
+        {/*  Search Bar Section */}
+        <div className="border border-[#2b2b2b] rounded-lg p-4 flex flex-1 flex-col sm:flex-wrap sm:flex-row gap-3 items-stretch sm:items-center bg-[#0e0e0e]/60 backdrop-blur-sm">
+          {/* Input Field */}
+          <div className="flex items-center flex-auto bg-[#1a1a1a] px-4 py-2 rounded-md border border-transparent focus-within:border-[#d4a574]/60 transition">
+            <Search size={18} className="text-gray-400 mr-2 flex-shrink-0" />
+            <input
+              type="text"
+              placeholder="Search agencies, locations, or specialties ..."
+              className="bg-transparent outline-none text-sm w-full placeholder:text-gray-500 text-gray-300"
+            />
+          </div>
+
+          {/* Dropdowns */}
+          <div className="flex flex-wrap gap-3 w-full sm:w-auto">
+            {/* Country */}
+            <div className="relative w-full sm:w-36">
+              <select className="appearance-none bg-[#1a1a1a] border border-[#2b2b2b] hover:border-[#d4a574]/50 focus:border-[#d4a574] transition text-sm px-4 py-2 rounded-md text-gray-300 w-full cursor-pointer">
+                <option>Country</option>
+              </select>
+              <ChevronDown
+                size={14}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+              />
+            </div>
+
+            {/* City */}
+            <div className="relative w-full sm:w-32">
+              <select className="appearance-none bg-[#1a1a1a] border border-[#2b2b2b] hover:border-[#d4a574]/50 focus:border-[#d4a574] transition text-sm px-4 py-2 rounded-md text-gray-300 w-full cursor-pointer">
+                <option>City</option>
+              </select>
+              <ChevronDown
+                size={14}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+              />
+            </div>
+
+            {/* Category */}
+            <div className="relative w-full sm:w-36">
+              <select className="appearance-none bg-[#1a1a1a] border border-[#2b2b2b] hover:border-[#d4a574]/50 focus:border-[#d4a574] transition text-sm px-4 py-2 rounded-md text-gray-300 w-full cursor-pointer">
+                <option>Category</option>
+              </select>
+              <ChevronDown
+                size={14}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+              />
+            </div>
+
+            {/* Sort Button */}
+            <button className="bg-gradient-to-r from-[#d4a574]/80 to-[#c29060]/80 hover:from-[#d4a574] hover:to-[#c29060] text-black font-medium text-sm px-5 py-2 rounded-md transition w-full sm:w-auto flex items-center justify-center gap-2 shadow-[0_0_10px_rgba(212,165,116,0.3)]">
+              <ChevronDown size={14} /> Sort
+            </button>
+          </div>
+        </div>
+        {/* Count */}
+
         <span className="bg-[#d4a67463] px-4 py-2 text-sm sm:text-base rounded-full">
           20 agencies found
         </span>
-      </div>
-
-      {/*  Search Bar Section */}
-      <div className="border border-[#2b2b2b] rounded-lg p-4 flex flex-col sm:flex-wrap sm:flex-row gap-3 items-stretch sm:items-center bg-[#0e0e0e]/60 backdrop-blur-sm">
-        {/* Input Field */}
-        <div className="flex items-center flex-auto bg-[#1a1a1a] px-4 py-2 rounded-md border border-transparent focus-within:border-[#d4a574]/60 transition">
-          <Search size={18} className="text-gray-400 mr-2 flex-shrink-0" />
-          <input
-            type="text"
-            placeholder="Search agencies, locations, or specialties ..."
-            className="bg-transparent outline-none text-sm w-full placeholder:text-gray-500 text-gray-300"
-          />
-        </div>
-
-        {/* Dropdowns */}
-        <div className="flex flex-wrap gap-3 w-full sm:w-auto">
-          {/* Country */}
-          <div className="relative w-full sm:w-36">
-            <select className="appearance-none bg-[#1a1a1a] border border-[#2b2b2b] hover:border-[#d4a574]/50 focus:border-[#d4a574] transition text-sm px-4 py-2 rounded-md text-gray-300 w-full cursor-pointer">
-              <option>Country</option>
-            </select>
-            <ChevronDown
-              size={14}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-            />
-          </div>
-
-          {/* City */}
-          <div className="relative w-full sm:w-32">
-            <select className="appearance-none bg-[#1a1a1a] border border-[#2b2b2b] hover:border-[#d4a574]/50 focus:border-[#d4a574] transition text-sm px-4 py-2 rounded-md text-gray-300 w-full cursor-pointer">
-              <option>City</option>
-            </select>
-            <ChevronDown
-              size={14}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-            />
-          </div>
-
-          {/* Category */}
-          <div className="relative w-full sm:w-36">
-            <select className="appearance-none bg-[#1a1a1a] border border-[#2b2b2b] hover:border-[#d4a574]/50 focus:border-[#d4a574] transition text-sm px-4 py-2 rounded-md text-gray-300 w-full cursor-pointer">
-              <option>Category</option>
-            </select>
-            <ChevronDown
-              size={14}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-            />
-          </div>
-
-          {/* Sort Button */}
-          <button className="bg-gradient-to-r from-[#d4a574]/80 to-[#c29060]/80 hover:from-[#d4a574] hover:to-[#c29060] text-black font-medium text-sm px-5 py-2 rounded-md transition w-full sm:w-auto flex items-center justify-center gap-2 shadow-[0_0_10px_rgba(212,165,116,0.3)]">
-            <ChevronDown size={14} /> Sort
-          </button>
-        </div>
       </div>
 
       {/* Cards Grid */}
