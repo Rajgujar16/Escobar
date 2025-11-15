@@ -53,7 +53,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="flex gap-6 sm:justify-between sm:gap-48">
+        <div className="flex gap-6 justify-between sm:gap-48 sm:mt-0 mt-4">
           {/* Contact Info */}
           <div className="space-y-4">
             <h3 className="text-white font-medium">Contact Information</h3>

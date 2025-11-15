@@ -86,7 +86,7 @@ export default function UserDashboard() {
           </p>
         </div>
         <button
-          className=" bg-[#d7a36a] text-black text-xs sm:text-sm px-6 py-2 rounded-md hover:bg-[#e0b26d] transition-all"
+          className=" bg-[#d7a36a] text-black text-xs sm:text-smk px-6 py-2 rounded-md hover:bg-[#e0b26d] transition-all"
           onClick={() => router.push("/userProfile/buyCredits")}
         >
           Buy Credit
@@ -94,7 +94,7 @@ export default function UserDashboard() {
       </div>
 
       {/* My Booking */}
-      <div className="w-full max-w-4xl sm:mb-10">
+      <div className="w-full max-w-4xl sm:mb-2">
         <h3 className="text-[#d7a36a] font-medium mb-4">My Booking</h3>
 
         <div className="space-y-3">
@@ -145,7 +145,7 @@ export default function UserDashboard() {
       </div>
 
       {/* Transaction History */}
-      <div className="w-full flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 sm:py-12 pb-0 text-white sm:mt-10 mt-8 ">
+      <div className="w-full flex flex-col items-center justify-center px-2 sm:px-4 md:px-8 sm:py-12 pb-0 text-white sm:mt-6 mt-8 ">
         <h2 className="text-2xl sm:text-3xl font-semibold mb-8 text-center">
           Transaction History
         </h2>
