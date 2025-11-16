@@ -71,7 +71,7 @@ export default function EscortAlertsAndUpdatesTab() {
           </div>
 
           {/* Filter buttons */}
-          <div className="flex gap-2 justify-center sm:justify-end">
+          <div className="flex gap-2  sm:justify-end">
             {["All", "System", "Personal"].map((filter) => (
               <button
                 key={filter}

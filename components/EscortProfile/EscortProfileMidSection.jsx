@@ -311,12 +311,29 @@ export default function EscortProfileMidSection() {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="border border-[#d4a574] rounded-lg px-4 py-3 text-sm text-white flex items-center justify-start gap-2 hover:bg-[#1a1a1a] transition-all duration-200 min-h-[48px]"
+                className="relative group border border-[#d4a574] rounded-lg sm:px-4 px-2 sm:h-[48px] h-[40px]
+             text-sm text-white flex items-center justify-start gap-2
+             hover:bg-[#1a1a1a] transition-all duration-200"
               >
-                <CircleCheck size={18} className="text-[#d4a574]" />
-                <span className="whitespace-normal break-words text-[13px] leading-tight">
+                <CircleCheck
+                  size={14}
+                  className="text-[#d4a574] flex-shrink-0 sm:size-[16px]"
+                />
+
+                <span className="text-[11px] sm:text-[13px] leading-tight line-clamp-2">
                   {service.name}
                 </span>
+
+                {/* Tooltip (Hover par dikhna / hover hatne par hat jaana) */}
+                <div
+                  className="absolute left-0 right-0 -bottom-[42px] bg-[#1a1a1a] text-white
+               text-[11px] sm:text-[12px] p-2 rounded-lg border border-[#d4a574]
+               opacity-0 scale-95 invisible group-hover:opacity-100 
+               group-hover:visible group-hover:scale-100
+               transition-all duration-200 shadow-lg z-20"
+                >
+                  {service.name}
+                </div>
               </div>
             ))}
           </div>
