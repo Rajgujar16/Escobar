@@ -1,24 +1,27 @@
 "use client";
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
-import AdminEscortProfileTab from "@/components/EscortAdminProfile/tabs/AdminEscortProfileTab";
-import EscortSubscriptionTab from "@/components/EscortAdminProfile/tabs/EscortSubscriptionTab";
-import EscortAlertsAndUpdatesTab from "@/components/EscortAdminProfile/tabs/EscortAlertsAndUpdatesTab";
-import EscortAdminActivitylog from "@/components/EscortAdminProfile/tabs/EscortAdminActivitylog";
-import EscortEarningsWithdrawals from "@/components/EscortAdminProfile/tabs/EscortEarningsWithdrawals";
-import EscortLiveStudioUI from "@/components/EscortAdminProfile/tabs/EscortLiveStudioUI";
+
+import AgencySubscriptionTab from "@/components/AgencyAdminPanel/tabs/AgencySubscriptionTab";
+import AgencyAdminProfile from "@/components/AgencyAdminPanel/tabs/AgencyAdminProfile";
+import AgencyAdminEscortTeam from "@/components/AgencyAdminPanel/tabs/AgencyAdminEscortTeam";
+import AgencyAlertUpdate from "@/components/AgencyAdminPanel/tabs/AgencyAlertUpdate";
+import AgencyEarningWithDrawals from "@/components/AgencyAdminPanel/tabs/AgencyEarningWithDrawals";
+import AgencyLiveStudioUi from "@/components/AgencyAdminPanel/tabs/AgencyLiveStudioUi";
+
 import { FaCheckCircle } from "react-icons/fa";
+import agencyProfile from "@/public/agencyProfile.png";
+import Image from "next/image";
 
 // import SettingsTab from "./Tabs/SettingsTab";
 
-export default function EscortAdminPanel() {
+export default function AgencyAdminPanel() {
   const [activeTab, setActiveTab] = useState("Profile");
 
   const tabs = [
     "Subscription",
     "Profile",
+    "Create & Manage Escorts",
     "Alerts & Updates",
-    "Activity Log",
     "Earnings & Withdrawals",
     "Live Studio",
     "Settings & Preferences",
@@ -27,17 +30,17 @@ export default function EscortAdminPanel() {
   const renderTabContent = () => {
     switch (activeTab) {
       case "Profile":
-        return <AdminEscortProfileTab />;
+        return <AgencyAdminProfile />;
       case "Subscription":
-        return <EscortSubscriptionTab />;
+        return <AgencySubscriptionTab />;
+      case "Create & Manage Escorts":
+        return <AgencyAdminEscortTeam />;
       case "Alerts & Updates":
-        return <EscortAlertsAndUpdatesTab />;
-      case "Activity Log":
-        return <EscortAdminActivitylog />;
+        return <AgencyAlertUpdate />;
       case "Earnings & Withdrawals":
-        return <EscortEarningsWithdrawals />;
+        return <AgencyEarningWithDrawals />;
       case "Live Studio":
-        return <EscortLiveStudioUI />;
+        return <AgencyLiveStudioUi />;
       // case "Settings & Preferences":
       //   return <SettingsTab />;
       default:
@@ -48,13 +51,13 @@ export default function EscortAdminPanel() {
   return (
     <div className="min-h-screen text-white px-4 sm:px-6 md:px-10 lg:px-20 xl:px-28">
       {/* Profile Section */}
-      <div className="flex  items-start justify-between pt-6 pb-8 gap-6">
+      <div className="flex  items-start justify-between pt-6 sm:pb-8 pb-4 gap-6">
         {/* Left: Profile Info */}
         <div className="flex sm:items-center  justify-start sm:flex-row flex-col gap-4 sm:gap-5 ">
           {/* Profile Image */}
           <div className="relative h-20 w-20 xs:h-24 xs:w-24 sm:h-32 sm:w-32 rounded-full overflow-hidden border-[2px] border-zinc-600 shadow-xl  sm:mx-0 shrink-0">
-            <img
-              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop"
+            <Image
+              src={agencyProfile}
               alt="Profile"
               className="object-cover w-full h-full"
             />
@@ -72,10 +75,6 @@ export default function EscortAdminPanel() {
             <div className="text-secondary cursor-pointer mb-2 text-xs">
               http://wildfire.com/gingerbreadperson
             </div>
-            {/* Button */}
-            <button className="bg-[#1f1f1f] hover:bg-[#2a2a2a] text-white px-3 py-1.5 text-xs rounded-full transition ">
-              View Profile
-            </button>
           </div>
         </div>
 
@@ -88,9 +87,9 @@ export default function EscortAdminPanel() {
       </div>
 
       {/* Tabs Section */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-gray-800 ">
         {/* Tabs (scrollable on mobile) */}
-        <div className="flex gap-6 sm:gap-8 md:gap-10 overflow-x-auto no-scrollbar pt-4 text-sm bg-[#0E0E0E] pb-2 sticky sm:top-20 top-16">
+        <div className="flex gap-6 sm:gap-8 md:gap-10 overflow-x-auto no-scrollbar pt-4 text-sm bg-[#0E0E0E] pb-2 sticky sm:top-20 top-16 z-50">
           {tabs.map((tab) => (
             <button
               key={tab}
