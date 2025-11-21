@@ -21,6 +21,10 @@ export function ModalProvider({ children }) {
   const openLive = () => setIsLiveOpen(true);
   const closeLive = () => setIsLiveOpen(false);
 
+  const [isCreateEscortOpen, setIsCreateEscortOpen] = useState(false);
+  const openCreateEscort = () => setIsCreateEscortOpen(true);
+  const closeCreateEscort = () => setIsCreateEscortOpen(false);
+
   return (
     <ModalContext.Provider
       value={{
@@ -36,8 +40,12 @@ export function ModalProvider({ children }) {
         isLiveOpen,
         openLive,
         closeLive,
+        isCreateEscortOpen,
+        closeCreateEscort,
+        openCreateEscort,
       }}
     >
+      
       {children}
     </ModalContext.Provider>
   );

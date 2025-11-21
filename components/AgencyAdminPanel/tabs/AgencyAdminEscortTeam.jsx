@@ -3,8 +3,10 @@ import Image from "next/image";
 import React from "react";
 import { FaStar, FaEye, FaPencilAlt, FaTrash } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
+import { useModal } from "../../../app/ModalContext";
 
 export default function AgencyAdminEscortTeam() {
+  const { openCreateEscort } = useModal();
   const escorts = Array(8).fill({
     name: "Sofia Laurent",
     rating: 4.8,
@@ -24,7 +26,10 @@ export default function AgencyAdminEscortTeam() {
           Team & Escorts
         </h1>
 
-        <button className="bg-[#d4a574] hover:bg-[#c99961] text-black sm:px-5 py-2 px-2 rounded text-xs sm:text-sm font-medium transition flex items-center gap-1">
+        <button
+          className="bg-[#d4a574] hover:bg-[#c99961] text-black sm:px-5 py-2 px-2 rounded text-xs sm:text-sm font-medium transition flex items-center gap-1"
+          onClick={openCreateEscort}
+        >
           <Plus size={15} /> Add New Escort
         </button>
       </div>

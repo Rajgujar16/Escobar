@@ -27,7 +27,7 @@ export default function IndependentRegister() {
           <>
             <div className="text-center mb-6">
               <h3 className="text-[#d7a36a] font-medium">Account Info</h3>
-              <p className="text-sm text-neutral-400">Step 1 of 7</p>
+              <p className="text-sm text-neutral-400">Step 1 of 6</p>
             </div>
 
             <div className="space-y-4">
@@ -84,7 +84,7 @@ export default function IndependentRegister() {
           <>
             <div className="text-center mb-6">
               <h3 className="text-[#d7a36a] font-medium">Personal Details</h3>
-              <p className="text-sm text-neutral-400">Step 2 of 7</p>
+              <p className="text-sm text-neutral-400">Step 2 of 6</p>
             </div>
 
             <div className="space-y-4">
@@ -206,7 +206,7 @@ export default function IndependentRegister() {
           <>
             <div className="text-center mb-6">
               <h3 className="text-[#d7a36a] font-medium">Appearance</h3>
-              <p className="text-sm text-neutral-400">Step 3 of 7</p>
+              <p className="text-sm text-neutral-400">Step 3 of 6</p>
             </div>
 
             <div className="space-y-4">
@@ -255,46 +255,26 @@ export default function IndependentRegister() {
               </div>
             </div>
 
-            <div className="flex justify-between mt-6">
-              <button
-                onClick={prevStep}
-                className="border border-neutral-700 px-6 py-2 rounded-md flex items-center gap-1 text-xs hover:border-[#d7a36a] transition-all"
-              >
-                <ChevronLeft size={16} /> Previous
-              </button>
-              <button
-                onClick={nextStep}
-                className="bg-[#d7a36a] text-black font-medium px-6 py-2 rounded-md flex items-center gap-1 text-xs hover:scale-[1.02] transition-transform"
-              >
-                Next <ChevronRight size={16} />
-              </button>
-            </div>
-          </>
-        )}
-
-        {step === 4 && (
-          <>
-            <div className="text-center mb-6">
-              <h3 className="text-[#d7a36a] font-medium">Services & About</h3>
-              <p className="text-sm text-neutral-400">Step 4 of 7</p>
-            </div>
-
-            <div className="space-y-4">
-              {/* About Me */}
-              <div>
-                <label className="block text-sm text-neutral-300 mb-1">
-                  About Me
-                </label>
-                <textarea
-                  placeholder="About me / profile Introduction (Min 50 words)"
-                  className="w-full bg-transparent border border-neutral-700 rounded-md p-3 text-sm placeholder-neutral-500 focus:border-[#d7a36a] outline-none resize-none h-24"
-                ></textarea>
+            <>
+              <div className="text-center my-3">
+                <h3 className="text-[#d7a36a] font-medium">Services & About</h3>
               </div>
 
-              {/* Services Offered */}
-              <Services />
+              <div className="space-y-4">
+                {/* Services Offered */}
+                <Services />
+                {/* About Me */}
+                <div>
+                  <label className="block text-sm text-neutral-300 mb-1">
+                    About Me
+                  </label>
+                  <textarea
+                    placeholder="About me / profile Introduction (Min 50 words)"
+                    className="w-full bg-transparent border border-neutral-700 rounded-md p-3 text-sm placeholder-neutral-500 focus:border-[#d7a36a] outline-none resize-none h-24"
+                  ></textarea>
+                </div>
 
-              {/* Rates */}
+                {/* Rates
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm text-neutral-300 mb-1">
@@ -319,7 +299,7 @@ export default function IndependentRegister() {
               </div>
 
               {/* Availability */}
-              <div>
+                {/* <div>
                 <label className="block text-sm text-neutral-300 mb-1">
                   Availability
                 </label>
@@ -328,8 +308,9 @@ export default function IndependentRegister() {
                   placeholder="e.g : Mon-Fri 10am–10pm"
                   className="w-full bg-transparent border border-neutral-700 rounded-md p-3 text-sm placeholder-neutral-500 focus:border-[#d7a36a] outline-none"
                 />
+              </div>  */}
               </div>
-            </div>
+            </>
 
             <div className="flex justify-between mt-6">
               <button
@@ -348,11 +329,11 @@ export default function IndependentRegister() {
           </>
         )}
 
-        {step === 5 && (
+        {step === 4 && (
           <>
             <div className="text-center mb-6">
               <h3 className="text-[#d7a36a] font-medium">Location</h3>
-              <p className="text-sm text-neutral-400">Step 5 of 7</p>
+              <p className="text-sm text-neutral-400">Step 4 of 6</p>
             </div>
 
             <div className="space-y-4">
@@ -432,11 +413,11 @@ export default function IndependentRegister() {
           </>
         )}
 
-        {step === 6 && (
+        {step === 5 && (
           <>
             <div className="text-center mb-6">
               <h3 className="text-[#d7a36a] font-medium">Media Uploads</h3>
-              <p className="text-sm text-neutral-400">Step 6 of 7</p>
+              <p className="text-sm text-neutral-400">Step 5 of 6</p>
             </div>
 
             <div className="space-y-5">
@@ -483,11 +464,11 @@ export default function IndependentRegister() {
           </>
         )}
 
-        {step === 7 && (
+        {step === 6 && (
           <>
             <div className="text-center mb-6">
               <h3 className="text-[#d7a36a] font-medium">Review & Submit</h3>
-              <p className="text-sm text-neutral-400">Step 7 of 7</p>
+              <p className="text-sm text-neutral-400">Step 6 of 6</p>
             </div>
 
             <div className="text-center mb-8">

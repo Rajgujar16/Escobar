@@ -3,15 +3,16 @@ import { useState } from "react";
 import { Inter } from "next/font/google";
 import "../lib/suppressHydrationWarnings";
 import "./globals.css";
-
+import store from "@/redux/Store";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LoginModal from "@/components/LoginModal/LoginModal";
 import BookingModal from "@/components/EscortProfile/BookingModal";
+import CreateAgencyEscortModal from "@/components/AgencyAdminPanel/CreateAgencyEscortModal";
 import GiftPopup from "@/components/LiveStream/GiftPopup";
 import { ModalProvider, useModal } from "./ModalContext";
 import Ads from "@/components/Ads/Ads";
-
+import { Provider } from "react-redux";
 import en from "@/public/locales/en/common.json";
 import fr from "@/public/locales/fr/common.json";
 import pt from "@/public/locales/pt/common.json";
@@ -32,6 +33,8 @@ function LayoutContent({ children, currentLocale, setCurrentLocale, t }) {
     closeGift,
     isLiveOpen,
     closeLive,
+    isCreateEscortOpen,
+    closeCreateEscort,
   } = useModal();
 
   return (
@@ -47,6 +50,10 @@ function LayoutContent({ children, currentLocale, setCurrentLocale, t }) {
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
       <GiftPopup isOpen={isGiftOpen} onClose={closeGift} />
       <LiveStreamModal isOpen={isLiveOpen} onClose={closeLive} />
+      <CreateAgencyEscortModal
+        isOpen={isCreateEscortOpen}
+        onClose={closeCreateEscort}
+      />
 
       {children}
       <Ads />
@@ -72,15 +79,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.className} min-h-screen bg-[#0e0e0e] lg:pt-24 md:pt-24 pt-20`}
       >
-        <ModalProvider>
-          <LayoutContent
-            currentLocale={currentLocale}
-            setCurrentLocale={setCurrentLocale}
-            t={t}
-          >
-            {children}
-          </LayoutContent>
-        </ModalProvider>
+        <Provider store={store}>
+          <ModalProvider>
+            <LayoutContent
+              currentLocale={currentLocale}
+              setCurrentLocale={setCurrentLocale}
+              t={t}
+            >
+              {children}
+            </LayoutContent>
+          </ModalProvider>
+        </Provider>
       </body>
     </html>
   );
